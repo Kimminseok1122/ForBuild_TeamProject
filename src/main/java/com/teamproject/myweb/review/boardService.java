@@ -40,8 +40,6 @@ public interface boardService {
 	
 	public ArrayList<MainVO> getPhoto_Category();
 	
-	public UserVO userCheckes(UserCheckVO vo);
-	
 	public ArrayList<Review_uploadVO> getImg(int review_no);
 	
 	public ArrayList<Review_uploadVO> getUploadList(int review_no);

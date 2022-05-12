@@ -4,6 +4,45 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.teamproject.myweb.user.UserMapper">
+
+	  <insert id="join">
+      insert into USER(user_id,
+                   user_pw,
+                   user_name,
+                   user_age,
+                   user_gender,
+                   user_phone
+                   )
+      values (#{user_id},
+            #{user_pw},
+            #{user_name},
+            #{user_age},
+            #{user_gender},
+            #{user_phone})
+   </insert>
+
+   <select id="userCheckes" resultType="UserVO">
+      SELECT * FROM USER
+      WHERE USER_ID = #{user_id} AND USER_PW = #{user_pw};
+   </select>
+
+   <update id="modify">
+      update user
+      set user_pw = #{user_pw},
+         user_phone = #{user_phone}
+      where user_no = #{user_no}
+   </update>
+   
+   <delete id="userDelete">
+      delete from user where user_no = #{user_no}
+   </delete>
+
+   <select id="myPage" resultType="UserVO">
+      select * from user
+      where user_no = #{user_no}
+   </select>
+   
+	
 	<insert id="examine">
 		insert into EXAMINE(USER_ID,
 							USER_NAME,
@@ -23,7 +62,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 					 		#{exam5},
 					 		#{exam6},
 					 		#{exam7})
-
 	</insert>
 
 

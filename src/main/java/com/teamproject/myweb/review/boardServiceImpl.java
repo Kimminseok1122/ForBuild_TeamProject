@@ -243,10 +243,6 @@ public class boardServiceImpl implements boardService{
 		return newlist;
 	}
 
-	@Override
-	public UserVO userCheckes(UserCheckVO vo) {
-		return boardmapper.userCheckes(vo);
-	}
 
 	@Override
 	public ArrayList<Review_uploadVO> getImg(int review_no) {

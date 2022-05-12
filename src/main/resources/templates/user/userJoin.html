@@ -26,7 +26,7 @@
                     <hr>
                 
                     <div class="joinform">
-                        <form action="#" method="post">
+                        <form action="joinform" method="post">
                             <ul>
                                 <li><strong>아이디</strong><br>
                                     <input type="text" placeholder="아이디 4~8자" name="user_id" pattern="[A-Za-z0-9]{4,8}"></li>
@@ -41,11 +41,11 @@
                                 <li>
                                     <strong>성별</strong><br>
                                     <select name="user_gender" id="gender">
-                                        <option value="male">남자</option>
-                                        <option value="female">여자</option>
+                                        <option value="m">남자</option>
+                                        <option value="w">여자</option>
                                     </select>
                                 </li>
-                                <li>
+                           <!--      <li>
                                     <strong>취미 : </strong>
                                     <div id="hobby" >
                                         <input type="checkbox" name="user_hobby">여행
@@ -55,12 +55,12 @@
                                         <input type="checkbox" name="user_hobby">기타
                                     </div>
                                     
-                                    </li>
+                                    </li> -->
                                 <li><strong>연락처</strong><br>
-                                    <input type="text" placeholder="000-0000-0000" name="user_phone" pattern="(010)-\d{3,4}-\d{4}"></li>
+                                    <input type="text" placeholder="010-0000-0000" name="user_phone" pattern="(010)-\d{3,4}-\d{4}"></li>
                             </ul>
 
-                            <button type="button" id="joinBtn">가입하기</button><!--submit-->
+                            <input type="submit" id="joinBtn" value="가입하기">
                         </form>
                     </div>
                 </div>

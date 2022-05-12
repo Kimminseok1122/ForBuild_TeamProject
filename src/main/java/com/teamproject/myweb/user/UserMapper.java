@@ -1,7 +1,10 @@
 package com.teamproject.myweb.user;
 
+
+
 import org.apache.ibatis.annotations.Mapper;
 
+import com.teamproject.myweb.command.ExamineVO;
 import com.teamproject.myweb.command.UserCheckVO;
 import com.teamproject.myweb.command.UserVO;
 
@@ -17,5 +20,7 @@ public interface UserMapper {
 	public int userDelete(int user_no);
 	
 	public UserVO myPage(int user_no);
+	
+	public int examine(ExamineVO vo);
 	
 }

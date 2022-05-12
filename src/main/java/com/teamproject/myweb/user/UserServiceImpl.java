@@ -3,18 +3,19 @@ package com.teamproject.myweb.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.teamproject.myweb.command.ExamineVO;
 import com.teamproject.myweb.command.UserCheckVO;
 import com.teamproject.myweb.command.UserVO;
-import com.teamproject.myweb.pnc.user.UserMapper;
-import com.teamproject.myweb.pnc.user.UserService;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
 
-	@Autowired UserMapper userMapper;
+	@Autowired 
+	UserMapper userMapper;
 
 	@Override
 	public int join(UserVO vo) {
+		System.out.println(vo+"서비스임플");
 		return userMapper.join(vo);
 	}
 	
@@ -38,4 +39,11 @@ public class UserServiceImpl implements UserService {
 		return userMapper.myPage(user_no);
 	}
 
+	@Override
+	public int examine(ExamineVO vo) {
+		return userMapper.examine(vo);
+	}
+
+	
+	
 }

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-   	<th:block th:replace="~{/include/header :: commoncss }"></th:block>
+      <th:block th:replace="~{/include/header :: commoncss }"></th:block>
   
     <link rel="stylesheet" th:href="@{/css/mypage.css}">
    
@@ -16,7 +16,7 @@
 
  <th:block th:replace="~{/include/header :: h_include }"></th:block>
  
-   <form action="#" method="#">
+   <form action="modify" name="modify" method="post">
       <div class="container-fluid text-center">    
         <div class="row content text-center">
             <div class="col-sm-6 text-center" style="margin: 0 auto; float: none;"> 
@@ -28,7 +28,8 @@
                       <tr>
                         <th class="title">아이디</th>
                           <td class="info">
-                            <strong>kkk123</strong>
+                          <input type="hidden" name="user_no" th:value="${session.userVO.user_no}">
+                            <strong>[[${session.userVO.user_id}]]</strong>
                           </td>
                         </tr>
                       
@@ -57,7 +58,7 @@
                       <tr>
                           <th class="title">이름</th>
                           <td class="info">
-                            <input type="text" placeholder="홍길동" readonly>
+                            <input type="text" th:value="${session.userVO.user_name}" readonly>
                             <!-- 변경x -->
                           </td>
                       </tr>
@@ -65,20 +66,24 @@
                       <tr>
                         <th class="title">나이</th>
                           <td class="info">
-                              <input type="text" placeholder="28" name="user_age" readonly>
+                              <input type="text" name="user_age" th:value="${session.userVO.user_age}" readonly>
                               <!-- 변경x -->
                             </td>
                       </tr>
   
+                   
                       <tr>
                           <th class="title">성별</th>
                           <td class="info">
-                              <input type="radio">남자
-                              <input type="radio">여자
+                              <input type="radio" name="user_gender" value="m" th:checked="${session.userVO.user_gender eq 'm'}" onclick="return(false)">남자
+                              <input type="radio" name="user_gender" value="w" th:checked="${session.userVO.user_gender eq 'w'}" onclick="return(false)">여자
                               <!-- 변경x -->
                           </td>
                       </tr>
+
+
                         <!-- 성별/관심사 checked -->
+                        <!-- 
                       <tr>
                           <th class="title">관심사</th>
                           <td class="info">
@@ -89,19 +94,21 @@
                               <input type="checkbox" name="user_hobby">etc..
                           </td>
                       </tr>
+                       -->
   
                       <tr>
                           <th class="title">연락처</th>
                           <td class="info">
-                              <input type="text" placeholder="000-0000-0000" name="user_phone">
+                              <input type="text" name="user_phone" th:value="${session.userVO.user_phone}">
                             </td>
                       </tr>            
                     </table>
                   
                     <div class="infoBottom">
-                      <button type="button" class="save">저장</button>
+                      <button type="submit" class="save">저장</button>
                       <!-- submit-->
-                          <button type="button" class="out" onclick="location.href='myPage'">나가기</button>
+                          <button type="button" class="out" th:onclick="|exit()|">나가기</button>
+                          <button type="button" class="out" th:onclick="|user_delete()|">회원탈퇴</button>
                   </div>
             </div>
 
@@ -114,4 +121,22 @@
 <th:block th:replace="~{/include/footer :: f_include }"></th:block>
 
 </body>
+
+<script th:inline="javascript">
+   function user_delete() {
+      this.event.preventDefault(); 
+      
+      if(confirm("탈퇴 하시겠습니까?")) {
+         document.modify.action = "userDelete";
+         document.modify.submit();
+      }
+   }
+   
+   function exit() {
+      this.event.preventDefault();
+      var user_no = JSON.parse('[[${session.userVO.user_no}]]');
+      location.href='http://localhost:8383/user/myPage?user_no=' + user_no;
+   }
+</script>
+
 </html>
