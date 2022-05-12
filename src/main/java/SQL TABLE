@@ -1,0 +1,111 @@
+create table reviewboard(
+	review_no int auto_increment primary key,
+    review_regDate timestamp default now(),
+    review_category varchar(100),
+    review_writer varchar(50),
+    review_lat varchar(30) not null,
+    review_lng varchar(30) not null,
+    review_title varchar(100) not null,
+    review_content varchar(2000),
+    review_realAddress varchar(200) not null,
+    review_theme varchar(1)
+);
+
+=======================================review
+
+CREATE TABLE USER(
+	USER_NO INT PRIMARY KEY AUTO_INCREMENT,
+    USER_ID VARCHAR(20) NOT NULL,
+    USER_PW VARCHAR(20) NOT NULL,
+    USER_NAME VARCHAR(10) NOT NULL,
+    USER_AGE INT NOT NULL,
+    USER_GENDER VARCHAR(1) DEFAULT 'M' CHECK(USER_GENDER IN ('W','M')) ,
+    USER_PHONE VARCHAR(20) 
+);
+
+
+======================================user
+
+CREATE TABLE REVIEW_UPLOAD(
+	REVIEW_UPLOAD_NO INT PRIMARY KEY AUTO_INCREMENT,
+    REVIEW_FILENAME VARCHAR(500) NOT NULL,
+    REVIEW_FILEPATH VARCHAR(100) NOT NULL,
+    REVIEW_UUID VARCHAR(50) NOT NULL,
+    REVIEW_WRITER VARCHAR(30) 
+    REVIEW_NO INT
+);
+
+===================================upload 
+
+CREATE TABLE message(
+	mno int primary key auto_increment,
+    msender varchar(50) not null,
+    mreceiver varchar(50) not null,
+    mcontent varchar(2000) not null,
+    msenddate timestamp default now()
+);
+
+===================================message
+
+CREATE TABLE DEBATE (
+	DEBATE_NO INT PRIMARY KEY AUTO_INCREMENT,
+    DEBATE_WRITER VARCHAR(20),
+    DEBATE_CONTENT VARCHAR(5000),
+    DEBATE_REGDATE TIMESTAMP DEFAULT NOW(),
+    DEBATE_TITLE VARCHAR(200)
+);
+
+===================================debate
+
+CREATE TABLE EXAMINE(
+	EXAM_NO INT PRIMARY KEY auto_increment,
+    USER_ID VARCHAR(20) NOT NULL,
+    USER_NAME VARCHAR(10) NOT NULL,
+    exam1 varchar(100),
+    exam2 varchar(100),
+    exam3 varchar(100),
+    exam4 varchar(100),
+    exam5 varchar(100),
+	exam6 varchar(100),
+    exam7 varchar(500)
+
+);
+
+=====================================examine
+
+create table freeBoard (
+	free_bno int primary key auto_increment,
+    free_writer varchar(20) not null,
+    free_title varchar(50),
+    free_content varchar(1000),
+    free_regdate timestamp default now()
+	
+);
+
+=================================freeboard
+
+create table comment (
+	cno int primary key auto_increment,
+	free_bno int not null,
+	c_writer varchar(20) not null,
+    c_content varchar(500) not null,
+    c_regdate timestamp default now()
+
+);
+
+=================================comment
+
+CREATE TABLE REVIEW_CATEGORY(
+	REVIEW_CATEGORY_NO INT PRIMARY KEY AUTO_INCREMENT,
+    REVIEW_GROUP VARCHAR(1),
+    REVIEW_CATEGORY_LV INT,
+    REVIEW_CATEGORY_DETAIL_LV INT,
+    REVIEW_CATEGORY_NM VARCHAR(10),
+    REVIEW_CATEGORY_DETAIL_NM VARCHAR(20),
+    REVIEW_CATEGORY_PARENT_LV INT,
+    REVIEW_CATEGORY_DETAIL_PARENT_LV INT,
+    REVIEW_WRITER VARCHAR(20),
+    REVIEW_NO INT
+);
+
+==================================review_category

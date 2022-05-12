@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js}"></script>
+
+    <link rel="stylesheet" th:href="@{/css/message.css}">
+  
+	<style>
+		.tab_item {
+    		background-color: rgb(242, 201, 124);
+    		color: white;
+    		}
+    	.tab_item1 {
+    		width: calc(100%/2);
+    		height: 50px;
+  
+    		/* box-shadow: 0 0 0 3px red inset; */
+    		border-top-left-radius: 25px;
+    		border-top-right-radius: 25px;
+    		background-color: #f8f8f8;
+    		line-height: 50px;
+    		font-size: 16px;
+    		text-align: center;
+    		color: #333333;
+    		display: block;
+    		float: left;
+    		text-align: center;
+    		font-weight: bold;
+    		transition: all 0.2s ease;
+  		}
+	</style>
+	
+</head>
+<body>
+
+	<div class="tabs">
+        <input id="all" type="radio" name="tab_item" checked>
+        <label class="tab_item1" id="toggle1" for="all" onclick="location.href='messageReceiveList'">받은메시지</label>
+        <input id="programming" type="radio" name="tab_item">
+        
+        <label class="tab_item" id= "toggle2" for="programming" onclick="location.href='messageSendList'">보낸메시지</label>
+        <div class="tab_content" id="all_content">
+        		
+                <ul class="inner" th:each="vo, state : ${senderList}">
+                	<li>TO. [[${vo.mreceiver}]]</li>
+                	<li>안읽음</li>
+                	<li class="right">[[${ #temporals.format(vo.msenddate, 'yyyy-MM-dd hh:mm:ss')}]]</li><br>
+                	<li><a th:href="@{/message/messageDetail(mno=${vo.mno})}">[[${vo.mcontent}]]</a></li>
+                	<!-- 보낸메세지 상세보기-->
+            	</ul>
+            	
+            <div class="page_wrap">
+                <div class="page_nation">
+                
+                	<th:block th:if="${sendpageVO.realEnd != 0}">
+                    	<a class="arrow pprev" th:href="@{/message/messageSendList(page=1, amount=${sendpageVO.amount})}"></a>
+                    </th:block>
+                    
+                    <th:block th:if="${sendpageVO.prev}">
+                    	<a class="arrow prev" th:href="@{/message/messageSendList(page=${sendpageVO.start-1}, amount=${sendpageVO.amount})}"></a>
+                    </th:block>
+                    
+                    <th:block th:each="page : ${sendpageVO.pageList}">
+                    	<a th:href="@{/message/messageSendList(page=${page}, amount=${sendpageVO.amount})}" th:class="${sendpageVO.page == page ? 'active' : ''}">[[${page}]]</a>
+                    </th:block>
+                    
+                    <th:block th:if="${sendpageVO.next}">
+                    	<a class="arrow next" th:href="@{/message/messageSendList(page=${sendpageVO.end+1}, amount=${sendpageVO.amount})}"></a>
+                    </th:block>
+                    
+                    <th:block th:if="${sendpageVO.realEnd != 0}">
+                    	<a class="arrow nnext" th:href="@{/message/messageSendList(page=${sendpageVO.realEnd}, amount=${sendpageVO.amount})}"></a>
+                    </th:block>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+
+</body>
+</html>

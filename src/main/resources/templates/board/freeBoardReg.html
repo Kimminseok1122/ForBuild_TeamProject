@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+	<th:block th:replace="~{/include/header :: commoncss }"></th:block>
+    <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+    <script th:src="@{/js/jquery-ui.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/review.css}">
+    
+   <style type="text/css">
+    	    .btn_area .save, .list, .btn_area .save1, .btn_area .save2,
+.btn_area2 .save1 {
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin: 0px 5px;
+}
+
+.btn_area .save:hover {
+    background-color: orange;
+
+    border: 1px solid orange;
+}
+
+.btn_area .save1:hover, .btn_area2 .save1:hover {
+    background-color: skyblue;
+
+    border: 1px solid skyblue;
+}
+
+.btn_area .save2:hover {
+    background-color: #3CB371;
+
+    border: 1px solid #3CB371;
+}
+
+.commentList {
+    padding-bottom: 30px;
+}
+.commentInner {
+    width: 100%;
+    height: 50px;
+    background-color: #f1f1f1;
+}
+
+
+.commentWriter {
+    width: 340px;
+}
+
+.commentContent {
+    width: 700px;
+}
+
+.commentDate {
+    width: 200px;
+}
+
+.commentReg {
+    overflow: hidden;
+    border-top: 1px solid #333;
+
+}
+
+.commentUser {
+    float: left;
+    padding: 20px;
+    text-align: center;
+
+}
+
+.commentUser p {
+	height: 45px;
+	font-size: 25px;
+	font-weight: bold;
+	margin-right: 20px;
+}
+
+.commentArea {
+    float: left;
+    margin-top: 20px;
+}
+
+.commentBtn {
+    padding-bottom: 20px;
+}
+
+.btn_area {
+    height: 40px;
+    margin-left: 15px;
+}
+
+#commentReg {
+	padding: 0 20px 50px 20px;
+}
+
+.btn_area .save1 {
+    float: left;
+}
+
+.btn_area .Reg {
+    float: right;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+
+}
+
+.btn_area2 {
+	text-align: center;
+}
+    </style>    
+
+</head>
+<body>
+ <th:block th:replace="~{/include/header :: h_include }"></th:block>
+
+    <div class="wrap">
+        <div class="warp_inner">
+            <div class="right_content">
+                <div class="midiaq">
+                    <form name="freeRegFom" action="freeRegForm" method="post">
+                        <div class="full_collum collum">
+                            <ul>
+                                <li class="collum_tit">
+                                    <h2>자유게시판 등록</h2>
+
+                                    <ul>
+                                        <li>
+                                            <table cellpadding="0" cellspacing="0" class="board_basic_view1" width="100%;">
+                                                <tr>
+                                                    <th>등록일</th>
+                                                    <td colspan="5">
+                                                        <input type="text" class="datepicker input"  placeholder="날짜선택">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>작성자</th>
+                                                    <td><input type="text" class="inputw150 input" name="free_writer" th:value="${session.userVO.user_name}" readonly></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>제목</th>
+                                                    <td colspan="5"><input type="text" class="inputw99p" name="free_title"></td>
+                                                </tr>
+                                                
+                                                <tr>
+                                                    <th>내용</th>
+                                                    <td colspan="5">
+                                                        <div>
+                                                            <textarea  class="inputw99p" name="free_content" style="height: 200px;"></textarea>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                            </table>
+                                            <div class="btn_area2">
+                                                <input type="submit" class="save1" value="등록">
+                                            	<input type="button" class="save1" onclick="location.href='freeBoard'" value="목록">
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+<th:block th:replace="~{/include/footer :: f_include }"></th:block>
+    <script th:inline="javascript">
+
+        $(".datepicker").val($.datepicker.formatDate('yy-mm-dd', new Date()));
+    
+    </script>
+    
+</body>
+</html>

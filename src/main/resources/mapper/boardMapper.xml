@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.teamproject.myweb.review.boardMapper">
+
+	<insert id="reviewRegist">
+		insert into reviewboard(
+				    review_writer,
+				    review_category,
+				    review_lat,
+				    review_lng,
+				    review_title,
+				    review_content,
+				    review_realAddress,
+				    review_theme
+				) values(
+					#{review_writer},
+					#{review_category},
+					#{review_lat},
+					#{review_lng},
+					#{review_title},
+					#{review_content},
+					#{review_realAddress},
+					#{review_theme}
+				)
+	</insert>
+	
+	<insert id="reviewFileRegist">
+		
+		<selectKey resultType="int" order="BEFORE" keyProperty="review_no">
+			select max(REVIEW_NO) as REVIEW_NO
+			from REVIEWBOARD
+			where REVIEW_WRITER = #{review_writer}
+		</selectKey>
+		
+		insert into review_upload(
+			review_filename,
+			review_filepath,
+			review_uuid,
+			review_no,
+			review_writer
+		) values(
+			#{review_filename},
+			#{review_filepath},
+			#{review_uuid},
+			#{review_no},
+			#{review_writer}
+		)
+		
+	</insert>
+	
+	<insert id="reviewCategoryRegist">
+		
+		<selectKey resultType="int" order="BEFORE" keyProperty="review_no">
+			select max(REVIEW_NO) as REVIEW_NO
+			from REVIEWBOARD
+			where REVIEW_WRITER = #{review_writer}
+		</selectKey>
+		
+		insert into review_category(
+			review_group,
+			review_category_lv,
+			review_category_detail_lv,
+			review_category_nm,
+			review_category_detail_nm,
+			review_category_parent_lv,
+			review_category_detail_parent_lv,
+			review_no,
+			review_writer
+		) values(
+			#{review_group},
+			#{review_category_lv},
+			#{review_category_detail_lv},
+			#{review_category_nm},
+			#{review_category_detail_nm},
+			#{review_category_parent_lv},
+			#{review_category_detail_parent_lv},
+			#{review_no},
+			#{review_writer}
+		)
+		
+	</insert>	
+	
+	<select id="reviewList" resultType="reviewVO">
+		<![CDATA[
+		SELECT *
+		FROM reviewboard
+		]]>
+		<if test = "search != null and search == 'searchtitle' ">
+		WHERE review_title LIKE CONCAT('%', #{searchKey},'%')
+		</if>
+		<if test = "search != null and search == 'searchregion' ">
+		WHERE review_category LIKE CONCAT('%', #{searchKey},'%')
+		</if>
+		<if test = "search != null and search == 'searchwriter' ">
+		WHERE review_writer LIKE CONCAT('%', #{searchKey},'%')
+		</if>
+		
+		<![CDATA[
+		ORDER BY review_no DESC
+		LIMIT #{limitLeft}, #{amount}
+		]]>
+	</select>
+	
+	<select id="reviewTotal" resultType="int">
+	<![CDATA[
+		select count(*) from reviewboard
+		]]>
+		<if test = "search != null and search == 'searchtitle' ">
+		WHERE review_title LIKE CONCAT('%', #{searchKey},'%')
+		</if>
+		<if test = "search != null and search == 'searchregion' ">
+		WHERE review_category LIKE CONCAT('%', #{searchKey},'%')
+		</if>
+		<if test = "search != null and search == 'searchwriter' ">
+		WHERE review_writer LIKE CONCAT('%', #{searchKey},'%')
+		</if>
+	</select>
+	
+	<select id="getDetail" resultType="reviewVO">
+		SELECT *
+		FROM reviewboard
+		WHERE review_no = #{review_no}
+	</select>
+	
+	<update id="updateReview">
+		update REVIEWBOARD 
+				SET REVIEW_CATEGORY = #{review_category},
+					REVIEW_LAT = #{review_lat},
+				    REVIEW_LNG = #{review_lng},
+				    REVIEW_TITLE = #{review_title},
+				    REVIEW_CONTENT = #{review_content},
+				    REVIEW_REALADDRESS = #{review_realAddress}
+				WHERE REVIEW_NO = #{review_no}
+	</update>
+	
+	<update id="reviewFileUpdate">
+		update review_upload
+			set review_filename = #{review_filename},
+				review_filepath = #{review_filepath},
+				review_uuid = #{review_uuid}
+			where review_upload_no = #{review_upload_no}
+	</update>
+	
+	<update id="reviewCategoryUpdate">
+		update review_category
+			set review_group = #{review_group},
+				review_category_lv = #{review_category_lv},
+				review_category_detail_lv = #{review_category_detail_lv},
+				review_category_nm = #{review_category_nm},
+				review_category_detail_nm = #{review_category_detail_nm},
+				review_category_parent_lv = #{review_category_parent_lv},
+				review_category_detail_parent_lv = #{review_category_detail_parent_lv}
+			where review_category_no = #{review_category_no}
+	</update>
+	
+	<select id="getUploadList" resultType="Review_uploadVO">
+		select * from review_upload
+		where review_no = #{review_no}
+	</select>
+	
+	<select id="getCategory" resultType="Review_CategoryVO">
+		select * from review_category
+		where review_no = #{review_no} 
+	</select>
+	
+	<delete id="deleteReview">
+		DELETE FROM REVIEWBOARD
+		WHERE REVIEW_NO=#{review_no}
+	</delete>
+	
+	<delete id="deleteCategory">
+		DELETE FROM REVIEW_CATEGORY
+		WHERE REVIEW_CATEGORY_NO=#{review_category_no}	
+	</delete>
+	
+	<delete id="deletePhoto">
+		DELETE FROM REVIEW_UPLOAD
+		WHERE REVIEW_UPLOAD_NO=#{review_upload_no}	
+	</delete>		
+		
+	
+	<select id="getLocation" resultType="MainVO">
+		select C1.*, C2.REVIEW_FILENAME , C2.REVIEW_FILEPATH, C2.REVIEW_UUID
+		from
+		(
+		select A1.REVIEW_NO, A1.REVIEW_REGDATE, A1.REVIEW_CATEGORY, A1.REVIEW_LAT , A1.REVIEW_LNG , A1.REVIEW_REALADDRESS , A1.REVIEW_TITLE, A2.review_group
+		from reviewboard A1
+		left outer join review_category A2
+		on A1.review_no = A2.review_no
+		group by review_no
+		) C1
+		left outer join review_upload C2
+		on C1.review_no = C2.review_no
+	</select>
+	
+	
+	<select id="getPhoto_Category" resultType="MainVO">
+		select *
+		from review_upload
+		where review_no = #{review_no} 	
+	</select>
+	
+	<select id="userCheckes" resultType="UserVO">
+		SELECT * FROM USER
+		WHERE USER_ID = #{user_id} AND USER_PW = #{user_pw}
+	</select>
+	
+	<select id="getImg" resultType="Review_uploadVO">
+		SELECT * FROM REVIEW_UPLOAD
+		WHERE REVIEW_NO = #{review_no}
+	</select>
+	
+	<select id="getUploadPrimeKey" resultType="int">
+		SELECT * FROM REVIEW_UPLOAD
+		WHERE REVIEW_NO = #{review_no}
+	</select>
+	
+	<select id="getCategoryPrimeKey" resultType="int">
+		SELECT * FROM REVIEW_CATEGORY
+		WHERE REVIEW_NO = #{review_no}
+	</select>
+	
+	<select id="getFirstCategory" resultType="MainVO">
+		select C1.*, C2.REVIEW_FILENAME , C2.REVIEW_FILEPATH, C2.REVIEW_UUID
+		from
+		(
+		select A1.REVIEW_NO, A1.REVIEW_REGDATE, A1.REVIEW_CATEGORY, A1.REVIEW_LAT , A1.REVIEW_LNG , A1.REVIEW_REALADDRESS , A1.REVIEW_TITLE,A1.review_theme ,A2.review_group
+		from reviewboard A1
+		inner join review_category A2
+		on A1.review_no = A2.review_no
+		group by review_no
+		)C1
+		left outer join review_upload C2
+		on C1.review_no = C2.review_no
+		where C1.review_theme = #{review_theme}
+	</select>
+	
+	<select id="getSecondCategory" resultType="MainVO">
+		select C1.*, C2.REVIEW_FILENAME , C2.REVIEW_FILEPATH, C2.REVIEW_UUID
+		from
+		(
+		select A1.REVIEW_NO, A1.REVIEW_REGDATE, A1.REVIEW_CATEGORY, A1.REVIEW_LAT , A1.REVIEW_LNG , A1.REVIEW_REALADDRESS , A1.REVIEW_TITLE,A1.review_theme ,A2.review_group
+		from reviewboard A1
+		inner join review_category A2
+		on A1.review_no = A2.review_no
+		group by review_no
+		)C1
+		left outer join review_upload C2
+		on C1.review_no = C2.review_no
+		where C1.review_theme = #{review_theme}
+		and C1.review_group in	
+		<foreach collection="review_groups" item="arr" index="index" open="(" close=")" separator=",">
+			'${arr}'
+		</foreach>
+	</select>
+	
+</mapper>

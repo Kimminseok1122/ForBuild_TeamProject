@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" th:href="@{/css/login_join.css}">
+
+    <script type="text/javascript">
+	   	function setCookie(name, value, expiredays) {
+	   		var date = new Date();
+	   		date.setDate(date.getDate() + expiredays);
+	   		document.cookie = name + "=" + escape(value) + "; path=/; expires=" + date.toUTCString() + ";"
+	   	}
+
+	   	function popupClose() {
+	   		if(document.getElementById("popupClose").value){
+	   			/* 하루동안 팝업 안뜸 */
+	   			setCookie("popupClose","N" , 1);
+	   			self.close();
+
+	   		};
+	   	}
+    </script>
+</head>
+<body style="background-color: whitesmoke">
+
+    <div class="container-fluid text-center">    
+        <div class="row content text-center">
+
+            <div class="col-sm-6 text-center" style="margin: 0 auto; float: none;"> 
+
+                <div class="joinheader" style="margin:20px 0">
+                    <div class="top">
+                        <strong>회원 설문조사</strong>
+                        <p>오늘하루 보지않기<input type="checkbox" id="popupClose" onclick="popupClose();"></p>
+                    </div>
+
+                    <hr>
+
+                    <div class="joinform">
+                        <form action="#" name="examineForm">
+                        <input type="hidden" name="USER_ID" th:value="${session.userVO.user_id}"></input>
+                        <input type="hidden" name="USER_NAME" th:value="${session.userVO.user_name}"></input>
+                            <ul>
+                                <li><strong>여행계획시 가장 중요하게 여기는것은 무엇인가요?</strong><br>
+                                    <input type="text" name="exam1"></li>
+                                <li><strong>여행지 결정에 가장 큰 영향을 주는 요소는 무엇인가요?</strong><br>
+                                    <input type="text" name="exam2"></li>
+                                <li><strong>숙소 결정에 가장 큰 영향을 주는 요소는 무엇인가요?</strong><br>
+                                    <input type="text" name="exam3"></li>
+                                <li><strong>다른 여행사이트를 이용하신적이 있다면 적어주세요.</strong><br>
+                                    <input type="text" name="exam4"></li>
+                                <li><strong>홈페이지를 알게된 경로를 적어주세요.</strong><br>
+                                    <input type="text" name="exam5"></li>
+                                <li>
+                                    <strong>홈페이지 만족도</strong><br>
+                                    <input type="radio" name="exam6" value="매우불만족">매우불만족
+                                    <input type="radio" name="exam6" value="불만족">불만족
+                                    <input type="radio" name="exam6" value="보통">보통
+                                    <input type="radio" name="exam6" value="만족">만족
+                                    <input type="radio" name="exam6" value="매우만족">매우만족
+
+                                </li>
+
+                                <li><strong>홈페이지에 대해 아쉬운부분, 바라는부분을 적어주세요</strong><br>
+                                    <input type="text" name="exam7"></li>
+                            </ul>
+
+                            <button type="button" id="joinBtn" onclick="examHandler()">제출하기</button><!--submit-->
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script th:inline="javascript">
+
+	    function examHandler() {
+
+	    		document.examineForm.target="hframe4";
+	    		document.examineForm.action="examineForm";
+	    		document.examineForm.submit();
+	    		/* 설문제출시 4개월동안 안뜸 */
+	    		setCookie("popupClose", "N", 120);
+	    		self.close();
+	    	   }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <th:block th:replace="~{/include/header :: commoncss }"></th:block>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/review.css}">
+    
+    <style type="text/css">
+    .btn_area .save, .list, .btn_area .save1, .btn_area .save2,
+.btn_area2 .save1 {
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin: 0px 5px;
+}
+
+.btn_area .save:hover {
+    background-color: orange;
+
+    border: 1px solid orange;
+}
+
+.btn_area .save1:hover, .btn_area2 .save1:hover {
+    background-color: skyblue;
+
+    border: 1px solid skyblue;
+}
+
+.btn_area .save2:hover {
+    background-color: #3CB371;
+
+    border: 1px solid #3CB371;
+}
+
+.commentList {
+    padding-bottom: 30px;
+}
+
+.commentList tr {
+	border-bottom: 1px solid #999;
+	background-color: whitesmoke;
+
+}
+.commentList td {
+	padding: 0 15px;
+}
+
+.commentInner {
+    width: 100%;
+    height: 50px;
+}
+
+
+.commentWriter {
+    width: 300px;
+    text-align: left;
+}
+
+.commentContent {
+    width: 700px;
+}
+
+.commentDate {
+    width: 200px;
+}
+
+.commentReg {
+    overflow: hidden;
+    border: 1px solid #777;
+   
+}
+
+.commentUser {
+    float: left;
+    padding: 20px;
+    text-align: center;
+    
+}
+
+.commentUser p {
+	height: 45px;
+	font-size: 25px;
+	font-weight: bold;
+	margin-right: 20px;
+}
+
+.commentArea {
+    float: left;
+    margin-top: 20px;
+}
+
+.commentBtn {
+    padding-bottom: 20px;
+}
+
+.btn_area {
+    height: 40px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+#commentReg {
+	padding: 0 20px 50px 20px;
+}
+
+.btn_area .save1 {
+    float: left;
+}
+
+.btn_area .Reg {
+    float: right;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+
+}
+
+.btn_area2 {
+	text-align: center;
+}
+
+.c_writer {
+	border: none;
+	height: 40px;
+	width: 99px;
+	outline: none;	
+}
+    
+.boardDetail p {
+	font-size: 16px;
+	margin-left: 25px;
+	margin-bottom: 10px;
+	height: 40px;
+	display: inline-block;
+}
+
+.commentMid {
+	height: 70px;
+	border-top: 2px solid skyblue;
+}
+
+.DetailTop {
+	overflow: hidden;
+	border-bottom:2px solid skyblue;
+
+}
+
+.topLeft {
+	float: left;
+}
+
+.topLeft strong {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.topRight {
+	float: right;
+}
+
+.Detail {
+	height: 500px;
+	padding: 30px;
+}
+
+.title {
+	height: 43px;
+	margin-right: 15px;
+}    
+    
+    </style>
+    
+
+</head>
+<body>
+
+ <th:block th:replace="~{/include/header :: h_include }"></th:block>
+
+    <div class="wrap">
+        <div class="warp_inner">
+            <div class="right_content">
+                <div class="midiaq">
+                        <div class="full_collum collum">
+                         <div class="freeboard-wrap">
+
+	                        <div class="search-wrap">
+	
+	
+	                        </div>                        
+                            <ul>
+                                <li class="collum_tit">
+                                    <h2 class="h2">자유게시판</h2>
+                                    <ul>
+                                        <li>
+										<div class="boardDetail">
+	                             			<div class="DetailTop">
+	                             				<div class="topLeft">
+		                             				<div class="title">
+			                             				<strong>
+			                             					[[${detail.free_title}]]
+			                             				</strong>
+		                             				</div>
+			                             			<p>[[${detail.free_writer}]]</p>
+	                             					<p>[[${#temporals.format(detail.free_regDate, 'yyyy-MM-dd  HH:mm') }]]</p>
+	                             				</div>
+
+	                             			</div>
+		                             		<div class="Detail">
+		                             			[[${detail.free_content}]]
+		                             		</div>
+
+                             			</div>
+                                            <div class="commentMid">
+                                                  <strong>댓글 [[${total}]]개</strong>
+
+                                            </div> 			
+                                            <div class="commentList">
+                                                <table class="commentInner">
+                                                    <tr th:each="comment : ${commentVO}">
+                                                        <td class="commentWriter">[[${comment.c_writer}]]</td>
+                                                        <td class="commentContent">[[${comment.c_content}]]</td>
+                                                        <td class="commentDate">[[${ #temporals.format(comment.c_regdate, 'yyyy-MM-dd  HH:mm') }]]
+                                                        <!-- 로그인 한 사람이 댓글쓴이거나, 게시글작성자면 삭제기능 활성화 -->
+                                                        <th:block th:if="${session.userVO.user_name} == ${comment.c_writer} or ${session.userVO.user_name} == ${detail.free_writer}">
+                                                      		<input type="button" value="삭제" style="border:none; background-color: whitesmoke;" th:onclick="'location.href=\'' + @{/board/commentDelete(free_bno=${comment.free_bno},cno=${comment.cno})} + '\''">
+                                                        </th:block>
+                                                        	      				<!-- onclick="location.href='commentDelete?cno=${comment.cno}&free_bno=${comment.free_bno}'" -->
+                                                        	      				<!-- th:onclick="'location.href=\'' + @{/board/commentDelete(free_bno=${commentVO.free_bno}&cno=${commentVO.cno})} + '\''" -->
+                                                        </td>
+
+                                                    </tr>
+                                                   
+                                                
+                                                </table>
+                                            </div>
+                                            <form action="commentReg" method="get">
+                                                  <div class="commentReg">
+                                                <div class="commentUser">
+                                                	<div>
+                                                		<p>댓글 작성</p>
+                                                	</div>
+                                                    <input type="text" class="c_writer" name="c_writer" th:value="${session.userVO.user_name}" readonly>
+                                                    <input type="hidden" name="free_bno" th:value="${detail.free_bno}">
+                                                    
+                                                </div>
+                                         
+                                                    <div class="commentArea">
+                                                        <textarea name="c_content" id="commentReg" cols="170" rows="1"></textarea>
+                                                       
+                                                            <div class="btn_area">
+                                                                <input type="button" class="save1" value="목록" onclick="location.href='freeBoard'">
+                                                                <!-- 수정은 세션id와 게시글 작성자id가 같을시 활성화-->
+                                                                <th:block th:if="${session.userVO.user_name} == ${detail.free_writer}">
+                                                                	<input type="button" class="save1" value="수정" th:onclick="'location.href=\'' + @{/board/freeBoardUpdate(free_bno=${detail.free_bno})} + '\''">
+                                                                </th:block>	
+                                                                <input type="submit" class="Reg save1" value="등록">
+                                                            </div>
+                                                    </div>
+                                             
+                                            </div>
+                                            </form>
+                                         
+                                        </li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+	<th:block th:replace="~{/include/footer :: f_include }"></th:block>
+    <script th:inline="javascript">
+
+        (function() {
+    		var msg = JSON.parse('[[${msg}]]');	
+    		if(msg != null) {
+    			alert(msg);
+    		}
+    	})();
+        
+        $(".datepicker").val($.datepicker.formatDate('yy-mm-dd', new Date()));
+        console.log(new Date());
+    	
+    
+        	
+        
+    </script>
+                
+    
+</body>
+</html>

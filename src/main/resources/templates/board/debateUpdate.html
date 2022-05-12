@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <th:block th:replace="~{/include/header :: commoncss }"></th:block>
+    
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/review.css}">
+    <link rel="stylesheet" th:href="@{/css/freeboard.css}">
+    
+
+</head>
+<body>
+
+	<th:block th:replace="~{/include/header :: h_include }"></th:block>
+
+    <div class="wrap">
+        <div class="warp_inner">
+            <div class="right_content">
+                <div class="midiaq">
+                    <form name="updateForm" action="####" method="post">
+                        <div class="full_collum collum">
+                            <ul>
+                                <li class="collum_tit">
+                                    <h2>토론수정</h2>
+
+                                    <span class="showtoggle minus"></span>
+                                    <ul>
+                                        <li>
+                                            <table cellpadding="0" cellspacing="0" class="board_basic_view2" width="100%;">
+                                                <tr>
+                                                	<input type="hidden" name="debate_no" th:value="${debateVO.debate_no}">
+                                                    <th>등록일</th>
+                                                    <td colspan="5">
+                                                        <input type="text" class="datepicker" name="" th:value="${#temporals.format(debateVO.debate_regdate, 'yyyy-MM-dd')}" readonly placeholder="날짜선택">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>작성자</th>
+                                                    <td><input type="text" class="inputw150" name="debate_writer" th:value="${debateVO.debate_writer}" readonly></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>제목</th>
+                                                    <td colspan="5"><input type="text" class="inputw99p" name="debate_title" th:value="${debateVO.debate_title}" ></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>내용</th>
+                                                    <td colspan="5">
+                                                        <div>
+                                                            <textarea  class="inputw99p" name="debate_content" style="height: 200px;">[[${debateVO.debate_content}]]</textarea>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                            </table>
+                                            <div class="btn_area">
+                                                <input type="button" class="save2" value="수정" th:onclick="|debate_update()|">
+                                            	<input type="button" class="save2" value="삭제" th:onclick="|debate_delete()|">
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <th:block th:replace="~{/include/footer :: f_include }"></th:block>
+
+    <script>
+
+        $(".datepicker").val($.datepicker.formatDate('yy-mm-dd', new Date()));
+        console.log(new Date());
+    	
+    	function debate_update() {
+			document.updateForm.action = "updateForm"; //action값 제어
+			document.updateForm.submit(); //폼 서브밋
+		}
+		
+		function debate_delete() {
+			document.updateForm.action = "deleteForm"; //action값 제어
+			document.updateForm.submit(); //폼 서브밋
+		}
+    
+    
+    </script>
+                
+    
+</body>
+</html>

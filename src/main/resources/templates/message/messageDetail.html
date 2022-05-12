@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" th:href="@{/css/message.css}">
+
+</head>
+<body>
+
+    <form action="messageDetail" name="" method="get">
+    	<div class="box">
+        	<h3 class="title">보낸메시지</h3>
+        	<h4 class="sender">TO.[[${mesVO.mreceiver}]]</h4>
+
+        	<div class="containerbox">
+            	<div class="innerbox">
+                	<span>[[${mesVO.mcontent}]]</span>
+            	</div>
+            	<div class="innerbottom">
+                	<button type="button" class="messageBtn" onclick="location.href='messageReply'">재전송하기</button>
+                	<!-- 내가 보냈던사람에게 다시쓰기 -->
+                	<button type="button" class="messageBtn" th:onclick="|location.href='@{deleteSendMessage(mno=${mesVO.mno})}'|">삭제</button>
+                	<button type="button" class="messageBtn" onclick="location.href='messageSendList'">목록</button>
+            	</div>
+        	</div>
+    	</div>
+    </form>
+    
+</body>
+</html>

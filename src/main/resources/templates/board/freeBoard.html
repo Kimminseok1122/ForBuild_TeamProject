@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <th:block th:replace="~{/include/header :: commoncss }"></th:block>
+  
+    <link rel="stylesheet" th:href="@{/css/freeboard.css}">
+    
+    <style type="text/css">
+    
+    .btn_area .save, .list, .btn_area .save1, .btn_area .save2,
+.btn_area2 .save1 {
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin: 0px 5px;
+}
+
+.btn_area .save:hover {
+    background-color: orange;
+
+    border: 1px solid orange;
+}
+
+.btn_area .save1:hover, .btn_area2 .save1:hover {
+    background-color: skyblue;
+
+    border: 1px solid skyblue;
+}
+
+.btn_area .save2:hover {
+    background-color: #3CB371;
+
+    border: 1px solid #3CB371;
+}
+
+.commentList {
+    padding-bottom: 30px;
+}
+.commentInner {
+    width: 100%;
+    height: 50px;
+    background-color: #f1f1f1;
+}
+
+
+.commentWriter {
+    width: 340px;
+}
+
+.commentContent {
+    width: 700px;
+}
+
+.commentDate {
+    width: 200px;
+}
+
+.commentReg {
+    overflow: hidden;
+    border-top: 1px solid #333;
+   
+}
+
+.commentUser {
+    float: left;
+    padding: 20px;
+    text-align: center;
+    
+}
+
+.commentUser p {
+	height: 45px;
+	font-size: 25px;
+	font-weight: bold;
+	margin-right: 20px;
+}
+
+.commentArea {
+    float: left;
+    margin-top: 20px;
+}
+
+.commentBtn {
+    padding-bottom: 20px;
+}
+
+.btn_area {
+    height: 40px;
+    margin-left: 15px;
+}
+
+#commentReg {
+	padding: 0 20px 50px 20px;
+}
+
+.btn_area .save1 {
+    float: left;
+}
+
+.btn_area .Reg {
+    float: right;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+
+}
+
+.btn_area2 {
+	text-align: center;
+}
+    
+    </style>
+    
+</head>
+<body>
+  
+  <th:block th:replace="~{/include/header :: h_include }"></th:block>
+    
+        <div class="container-fluid text-center">    
+            <div class="row content text-center">
+              
+                <div class="col-sm-8 text-center" style="margin: 0 auto; float: none;"> 
+             <form action="freeBoard" name="freeBoard" method="get">
+             
+             	<input type="hidden" name="page" th:value="1">
+				<input type="hidden" name="amount" th:value="${pageVO.amount}" >
+             
+                   <div class="freeboard-wrap">
+                    <div class="boardTitle"> 
+                        <strong>자유게시판</strong>
+                    </div>
+                        <div class="search-wrap">
+                            <div class="search-left">
+                                <select name="show" id="showoption" th:onchange="|showHandler(this)|">
+                                    <option value="10" th:selected="${pageVO.amount} == 10 ? 'selected' ">10개 보기</option>
+                                    <option value="20" th:selected="${pageVO.amount} == 20 ? 'selected' ">20개 보기</option>
+                                    <option value="30" th:selected="${pageVO.amount} == 30 ? 'selected' ">30개 보기</option>
+                                </select>
+                            </div>
+                            <div class="search-right">
+                                
+                                    <select name="searchoption" id="searchoption">
+                                        <option value="searchTitle" th:selected="${pageVO.cri.searchKey} == 'searchTitle' ? 'selected' ">제목</option>
+                                        <option value="searchWriter" th:selected="${pageVO.cri.searchKey} == 'searchWriter' ? 'selected' ">작성자</option>
+                                    </select>
+                                
+                                <input type="text" name="searchKey" id="searchKey" placeholder="검색어를 입력하세요.">
+                                <input type="submit" value="검색" id="searchBtn">
+                                <!--submit-->
+                            </div>
+                        </div>
+                       <table class="freeboard1">
+                           <tr class="boardTop">
+                               <th>번호</th>
+                               <th>작성자</th>
+                               <th>제목</th>
+                               <th>등록일</th>
+                            </tr>
+                            <tr th:each="list, state : ${list}">
+                               <td class="bno">[[${list.free_bno}]]</td>
+                               <td class="writer">[[${list.free_writer}]]</td>
+                               <td class="title"><a th:href="@{/board/freeBoardDetail(free_bno=${list.free_bno})}">[[${list.free_title}]]</a></td>
+                               <td class="regdate">[[${ #temporals.format(list.free_regDate, 'yyyy-MM-dd') }]]</td>
+                            </tr>
+            
+                        </table>
+                        <div class="page_wrap">
+                            <div class="page_nation">
+                            	<th:block th:if="${pageVO.realEnd != 0}">
+                                	<a class="arrow pprev" th:href="@{/board/freeBoard(page=1,
+                                								   amount=${pageVO.amount},
+                                								   searchoption=${pageVO.cri.searchoption},
+                                								   searchKey=${pageVO.cri.searchKey})}"></a>
+                            	</th:block>
+                            	<th:block th:if=${pageVO.prev}>
+                                	<a class="arrow prev" th:href="@{/board/freeBoard(page=${pageVO.start - 1},
+                                								   amount=${pageVO.amount},
+                                								   searchoption=${pageVO.cri.searchoption},
+                                								   searchKey=${pageVO.cri.searchKey})}"></a>
+                            	</th:block>
+                                <th:block th:each="page : ${pageVO.pageList}">
+                                	<a th:href="@{/board/freeBoard(page=${page},
+                                								   amount=${pageVO.amount},
+                                								   searchoption=${pageVO.cri.searchoption},
+                                								   searchKey=${pageVO.cri.searchKey})}" th:class="${pageVO.page == page ? 'active' : ''}">[[${page}]]</a>
+                                </th:block>
+                                <th:block th:if=${pageVO.next}>
+                                	<a class="arrow next" th:href="@{/board/freeBoard(page=${pageVO.end + 1},
+                                								   amount=${pageVO.amount},
+                                								   searchoption=${pageVO.cri.searchoption},
+                                								   searchKey=${pageVO.cri.searchKey})}"></a>
+                                </th:block>
+                                <th:block th:if="${pageVO.realEnd != 0}">
+                                	<a class="arrow nnext" th:href="@{/board/freeBoard(page=${pageVO.realEnd},
+                                								   amount=${pageVO.amount},
+                                								   searchoption=${pageVO.cri.searchoption},
+                                								   searchKey=${pageVO.cri.searchKey})}"></a>
+                                </th:block>
+                            </div>
+                            <div class="write-wrap">
+                                <input type="button" value="글쓰기" id="writeBtn" onclick="location.href='freeBoardReg'">
+                            </div>
+                        </div>
+                    </div> 
+                    </form>
+                </div>
+          
+            </div>
+        </div>
+         
+  <th:block th:replace="~{/include/footer :: f_include }"></th:block>
+    <script th:inline="javascript">
+    (function() {
+		var msg = JSON.parse('[[${msg}]]');	
+		if(msg != null) {
+			alert(msg);
+		}
+	})();
+    
+    function showHandler(show) {
+    	
+    	document.freeBoard.page.value = 1;
+    	document.freeBoard.amount.value = show.value ; 
+    	document.freeBoard.submit();
+    	
+    }
+    	
+    </script>
+</body>
+</html>

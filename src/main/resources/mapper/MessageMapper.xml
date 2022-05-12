@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.teamproject.myweb.message.MessageMapper">
+	
+	<insert id="write">
+		insert into message(mreceiver,
+							msender,
+							mcontent
+							)
+		values(#{mreceiver},
+			   #{msender},
+			   #{mcontent})	
+	</insert>
+	
+	<select id="getList" resultType="MessageVO">
+		<!-- select * from message where msender = #{sender} order by mno desc -->
+		select A.*
+		from (select * from message
+			where msender = #{sender}
+				order by mno desc) A
+        limit #{cri.pagee}, #{cri.amount};
+	</select>
+	
+	<select id="re_getList" resultType="MessageVO">
+		<!-- select * from message where mreceiver = #{sender} order by mno desc -->
+		select A.*
+		from (select * from message
+			where mreceiver = #{sender}
+				order by mno desc) A
+        limit #{cri.pagee}, #{cri.amount};
+	</select>
+	
+	<select id="getSendTotal" resultType="int">
+		select count(*) from message where msender = #{sender}
+	</select>
+	
+	<select id="getReceiveTotal" resultType="int">
+		select count(*) from message where mreceiver = #{sender}
+	</select>
+	
+	<select id="getDetail" resultType="MessageVO">
+		select * from message where mno = #{mno} 
+	</select>
+	
+	<delete id="delete">
+		delete from message where mno = #{mno}
+	</delete>
+	
+	<update id="update">
+		update message 
+		set mopendate = #{mopendate}
+	</update>
+	
+</mapper>

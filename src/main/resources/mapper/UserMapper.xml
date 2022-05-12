@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.teamproject.myweb.user.UserMapper">
+	<insert id="examine">
+		insert into EXAMINE(USER_ID,
+							USER_NAME,
+							exam1,
+							exam2,
+							exam3,
+							exam4,
+							exam5,
+							exam6,
+							exam7)
+					 values(#{USER_ID},
+					 		#{USER_NAME},
+					 		#{exam1},
+					 		#{exam2},
+					 		#{exam3},
+					 		#{exam4},
+					 		#{exam5},
+					 		#{exam6},
+					 		#{exam7})
+
+	</insert>
+
+
+
+
+</mapper> 
