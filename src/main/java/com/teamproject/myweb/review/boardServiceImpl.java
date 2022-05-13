@@ -241,10 +241,6 @@ public class boardServiceImpl implements boardService{
 		return newlist;
 	}
 
-	@Override
-	public UserVO userCheckes(UserCheckVO vo) {
-		return boardmapper.userCheckes(vo);
-	}
 
 	@Override
 	public ArrayList<Review_uploadVO> getImg(int review_no) {
@@ -316,6 +312,11 @@ public class boardServiceImpl implements boardService{
 	public ArrayList<MainVO> getSecondCategory(String review_theme, String[] review_groups) {
 		ArrayList<MainVO> list = boardmapper.getSecondCategory( review_theme, Arrays.asList(review_groups)  );
 		return list;
+	}
+
+	@Override
+	public ArrayList<reviewVO> myreviewList(String user_name) {
+		return boardmapper.myreviewList(user_name);
 	}
 
 	

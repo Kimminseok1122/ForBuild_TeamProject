@@ -31,18 +31,24 @@
   <div class="header_area box_inner">
       <h1><a th:href="@{/main}">로고</a></h1>
       <div class="header_cont">
-          <ul class="util">
+		<ul class="util">
               <th:block th:if="${session.userVO} == null">
               <li ><a th:href="@{/user/userLogin}">
               로그인
               </a></li>
               </th:block>
               <th:block th:unless="${session.userVO} == null">
-              <li ><a th:href="@{/user/myPage}">
-              마이페이지
-              </a></li>
+                 <li ><a th:href="@{/user/myPage(user_no=${session.userVO.user_no}, user_name=${session.userVO.user_name})}">
+                 마이페이지
+                 </a></li>
               </th:block>
-              <li><a th:href="@{/user/userJoin}">회원가입</a></li>
+              
+              <th:block th:if="${session.userVO} == null">
+                 <li><a th:href="@{/user/userJoin}">회원가입</a></li>
+              </th:block>
+              <th:block  th:unless="${session.userVO} == null">
+                 <li><a th:href="@{/user/logout}">로그아웃</a></li>   
+              </th:block>
           </ul>
 
           <ul class="gnb" style="width: 640px;">

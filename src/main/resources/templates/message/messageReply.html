@@ -15,7 +15,8 @@
         <div class="box">
         	<h3 class="title">답장보내기</h3>
         	<h4 class="receiver">TO.<input type="text" name="mreceiver" th:value="${mreceiver}" readonly="readonly"><!-- 받는사람 --></h4>
-        	<input type="hidden" name="msender" value="세션에아이디">
+        	<input type="hidden" name="user_id" th:value="${session.userVO.user_id}">
+        	<input type="hidden" name="msender" th:value="${session.userVO.user_id}">
         	
         	<div class="innerbox1">
             	<textarea class="textarea" name="mcontent" id="" cols="45" rows="18" ></textarea>
@@ -23,7 +24,7 @@
         	</div>
         	<div class="innerbottom">
             	<button type="submit" class="messageBtn">보내기</button>
-            	<button type="button" class="messageBtn" onclick="location.href='messageList'">목록으로</button>
+            	<button type="button" class="messageBtn" th:onclick="'location.href=\'' + @{/message/messageReceiveList(user_id=${session.userVO.user_id})} + '\''">목록으로</button>
         	</div>
     	</div>
     </form>

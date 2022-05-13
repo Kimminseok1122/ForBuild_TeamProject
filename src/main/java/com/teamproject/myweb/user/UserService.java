@@ -1,5 +1,6 @@
 package com.teamproject.myweb.user;
 
+import com.teamproject.myweb.command.ExamineVO;
 import com.teamproject.myweb.command.UserCheckVO;
 import com.teamproject.myweb.command.UserVO;
 
@@ -15,5 +16,6 @@ public interface UserService {
 	
 	public UserVO myPage(int user_no);
 	
-	//public 
+	public int examine(ExamineVO vo);
+
 }

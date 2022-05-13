@@ -4,17 +4,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.hibernate.internal.build.AllowSysOut;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import com.teamproject.myweb.command.UserVO;
-import com.teamproject.myweb.review.boardService;
 
 public class CheckHandler implements HandlerInterceptor{
 
-	@Autowired
-	boardService boardservice;
+
 	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)

@@ -25,8 +25,8 @@ public class MessageServiceImpl implements MessageService{
 	}
 	
 	@Override
-	public ArrayList<MessageVO> getList(String sender, Criteria cri) {
-		return messageMapper.getList(sender, cri);
+	public ArrayList<MessageVO> getList(String user_id, Criteria cri) {
+		return messageMapper.getList(user_id, cri);
 	}
 
 	@Override
@@ -41,8 +41,8 @@ public class MessageServiceImpl implements MessageService{
 	}
 
 	@Override
-	public ArrayList<MessageVO> re_getList(String sender, Criteria cri) {
-		return messageMapper.re_getList(sender, cri);
+	public ArrayList<MessageVO> re_getList(String user_id, Criteria cri) {
+		return messageMapper.re_getList(user_id, cri);
 	}
 
 	@Override
@@ -51,13 +51,13 @@ public class MessageServiceImpl implements MessageService{
 	}
 
 	@Override
-	public int getSendTotal(String sender) {
-		return messageMapper.getSendTotal(sender);
+	public int getSendTotal(String user_id) {
+		return messageMapper.getSendTotal(user_id);
 	}
 
 	@Override
-	public int getReceiveTotal(String sender) {
-		return messageMapper.getReceiveTotal(sender);
+	public int getReceiveTotal(String user_id) {
+		return messageMapper.getReceiveTotal(user_id);
 	}
 
 	@Override

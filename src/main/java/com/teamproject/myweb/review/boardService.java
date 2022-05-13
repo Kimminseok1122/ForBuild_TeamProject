@@ -24,6 +24,8 @@ public interface boardService {
 	
 	public ArrayList<reviewVO> reviewList(review_Criteria cri);
 	
+	public ArrayList<reviewVO> myreviewList(String user_name);
+	
 	public int reviewTotal(review_Criteria cri);
 	
 	public reviewVO getDetail(int review_no);
@@ -39,8 +41,6 @@ public interface boardService {
 	public ArrayList<MainVO> getLocation();
 	
 	public ArrayList<MainVO> getPhoto_Category();
-	
-	public UserVO userCheckes(UserCheckVO vo);
 	
 	public ArrayList<Review_uploadVO> getImg(int review_no);
 	

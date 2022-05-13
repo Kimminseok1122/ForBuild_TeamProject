@@ -37,7 +37,7 @@
                     <h2 class="h2">회원정보</h2>
                     <div class="infoBottom1">
                       <button type="button" class="myDM" onclick="DMSend()">쪽지 보내기</button>
-                      <button type="button" class="myDM" onclick="DMList()">내 쪽지함</button>
+                      <button type="button" class="myDM" th:onclick="|DMList()|">내 쪽지함</button>
                       <!-- location에 user_id 넘겨서 쪽지데이터 받기-->
                       <button type="button" class="save" onclick="location.href='myModify'">회원정보수정</button> 
                       <!-- location에 user_id 넘겨서 회원데이터 받기-->
@@ -46,31 +46,33 @@
                     <tr>
                       <th class="title">아이디</th>
                         <td class="info">
-                          <strong>kkk123</strong>
+                        <input type="hidden" name="user_no" th:value="${session.userVO.user_no}">
+                          <strong>[[${session.userVO.user_id}]]</strong>
                         </td>
                       </tr>
                    
                     <tr>
                         <th class="title">이름</th>
                         <td class="info">
-                          <span>홍길동</span>
+                          <span>[[${session.userVO.user_name}]]</span>
                         </td>
                     </tr>
                     
                     <tr>
                       <th class="title">나이</th>
                         <td class="info">
-                            <span>28</span>
+                            <span>[[${session.userVO.user_age}]]</span>
                           </td>
                     </tr>
 
                     <tr>
                         <th class="title">성별</th>
                         <td class="info">
-                            <input type="radio" name="gender">남자
-                            <input type="radio" name="gender">여자
+                    		<span th:if="${session.userVO.user_gender} == 'm'">남자</span>
+                     		<span th:if="${session.userVO.user_gender} == 'w'">여자</span>
                         </td>
                     </tr>
+
                       <!-- 성별/관심사 checked   required ? -->
                     <tr>
                         <th class="title">관심사</th>
@@ -86,7 +88,7 @@
                     <tr>
                         <th class="title">연락처</th>
                         <td class="info">
-                            <span>000-0000-0000</span>
+                            <span>[[${session.userVO.user_phone}]]</span>
                           </td>
                     </tr>
 
@@ -107,19 +109,16 @@
                         <th class="tag">제목</td>
                           <th class="tag">등록일</td>
                     </tr>
-                    
+                    <!-- 내가 쓴 리뷰리스트, review writer가 session user_id랑 같은 리뷰 -->
+                    <th:block th:each="vo,state : ${reviewVO}">
                     <tr>
-                      <td>1</td>
-                        <td>서울</td>
-                        <td><a href="#">제목을 클릭하면 리뷰 상세보기</a></td>
-                        <td>yyyy-MM-dd</td>
+                      <td>[[${vo.review_no}]]</td>
+                        <td>[[${vo.review_category}]]</td>
+                        <td><a th:href="@{/board/reviewDetail(review_no=${vo.review_no})}">[[${vo.review_title}]]</a></td>
+                        <td>[[${vo.review_regDate}]]</td>
                       </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>경기도</td>
-                        <td><a href="#">제목을 클릭하면 리뷰 상세보기</a></td>
-                        <td>yyyy-MM-dd</td>
-                      </tr>
+                    </th:block>
+                     
                     </table>
 
                     <table class="favoritesTable" id="favorites">
@@ -184,11 +183,15 @@
           
         }
         function DMList() {
-            window.open("/message/messageReceiveList", "myDM", "width=540, height=500, left=200, top=100");
-          }
+   			var user_id = ('[[${session.userVO.user_id}]]');
+   			console.log(user_id);
+            window.open("/message/messageReceiveList?user_id="+ user_id, "myDM", "width=540, height=500, left=200, top=100");
+        }
         
         function DMSend() {
-        	window.open("/message/messageSend", "DMSend", "width=540, height=500, left=200, top=100");
+        	var user_id = ('[[${session.userVO.user_id}]]');
+        	console.log(user_id);
+        	window.open("/message/messageSend?user_id="+ user_id, "DMSend", "width=540, height=500, left=200, top=100");
         }
 
       </script>

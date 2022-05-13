@@ -22,18 +22,18 @@
   <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" >
   <link th:href="@{https://fonts.googleapis.com/css2?family=Lato&display=swap}" rel="stylesheet">
   <link rel="stylesheet" type="text/css" th:href="@{/css/showMoreItems-theme.min.css}" />
-
-	<script type="text/javascript">
-
-
+  
+  <script type="text/javascript">
+	  
+	  
 	  function getCookie(name){
-
+		  
 		  var cookie = document.cookie;
 		  if(document.cookie != ""){
 			  var cookie_array = cookie.split("; ");
 			  for (var i in cookie_array){
 				  var cookie_name = cookie_array[i].split("=");
-
+				  
 				  if(cookie_name[0] == "popupClose"){
 					  return cookie_name[1]; /* N */
 				  }
@@ -41,25 +41,27 @@
 		  }
 		  return "";
 	  };
-
-
+	  
+	  
 	  function popUp(url) {
 	 	var cookieCheck = getCookie("popupClose");
 	 	var userVO = '[[${session.userVO}]]';
 	 	/* userVO가 공백이 아니고, cookie가 N이 아닐때 팝업호출 */
 	 	if(userVO != "" & cookieCheck != "N"){
-	 	 	window.open(url, "examine", "width=650, height=800, left=300, top=100");
-
+	 	 	window.open(url, "examine", "width=650, height=830, left=300, top=100");
+	 		  
 	 	}
 	  }
-
+	
   </script>
+
 
 
 </head>
 <body onload="javascript:popUp('/user/examine')">
 <iframe name="hframe4" style="display: none;"></iframe>
 <th:block th:replace="~{/include/header :: h_include }"></th:block>
+
 
 <div class="weekly-outer">
   <div class="weekly-content">
@@ -73,19 +75,19 @@
       <div class="weekly-commend1">
         <a href="#taste-travel"><img th:src="@{/img/맛집아이콘.PNG}" id="tasteImg" style="cursor: pointer;"></a>
         <div>
-          맛집 여행
+          맛집탐방
         </div>
       </div>
       <div class="weekly-commend2">
         <a href="#view-travel"><img th:src="@{/img/명소아이콘.PNG}" id="locaImg" style="cursor: pointer;"></a>
         <div>
-          명소 여행
+          자유여행
         </div>
       </div>
       <div class="weekly-commend3">
         <a href="#play-travel"><img th:src="@{/img/레저아이콘.PNG}" id="playImg" style="cursor: pointer;"></a>
         <div>
-          재밌는 여행
+          액티비티
         </div>
       </div>
       
@@ -159,7 +161,6 @@
 <div class="taste-middle-outer" style="display: none;">
   <div class="taste-middle">
       <div class="taste-middle-text">
-          <span id="taste-travel">먹거리 여행</span>
       </div>
   </div>
   <div class="taste-middle2">
@@ -170,58 +171,59 @@
           <div class="sidewrap">
           	<div class="sideleft">
 		          <div>
-		              <input type="checkbox" name="checkbox1_1" id="checkbox1" value="A">
-		              <label for="checkbox1">
+		              <input type="checkbox" name="" id="checkbox5">
+		              <label for="checkbox5">
 		                  <div>
 		                      <span>서울</span>
 		                  </div>
 		              </label>
 		          </div>
 		          <div>
-		              <input type="checkbox" name="checkbox1_1" id="checkbox2" value="B">
-		              <label for="checkbox2">
+		              <input type="checkbox" name="" id="checkbox6">
+		              <label for="checkbox6">
 		                  <div>
-		                      <span>부산</span>
+		                      <span>경기도</span>
 		                  </div>
 		              </label>
 		          </div>
 		          <div>
-		              <input type="checkbox" name="checkbox1_1" id="checkbox3" value="C">
-		              <label for="checkbox3">
+		              <input type="checkbox" name="" id="checkbox7">
+		              <label for="checkbox7">
 		                  <div>
-		                      <span>대구</span>
+		                      <span>충청도</span>
 		                  </div>
 		              </label>
 		          </div>
 		            <div>
-		              <input type="checkbox" name="checkbox1_1" id="checkbox4" value="D">
-		              <label for="checkbox4">
+		              <input type="checkbox" name="" id="checkbox7">
+		              <label for="checkbox7">
 		                  <div>
 		                      <span>인천</span>
 		                  </div>
 		              </label>
 		          </div>
 		          </div>
-
+		          
 		          <div class="sideright">
+		         
 		            <div>
-		              <input type="checkbox" name="checkbox1_1" id="checkbox5" value="E">
-		              <label for="checkbox5">
+		              <input type="checkbox" name="" id="checkbox7">
+		              <label for="checkbox7">
 		                  <div>
-		                      <span>광주</span>
+		                      <span>전라도</span>
 		                  </div>
 		              </label>
 		          </div>
 		            <div>
-		              <input type="checkbox" name="checkbox1_1" id="checkbox6" value="F">
-		              <label for="checkbox6">
+		              <input type="checkbox" name="" id="checkbox7">
+		              <label for="checkbox7">
 		                  <div>
-		                      <span>대전</span>
+		                      <span>경상도</span>
 		                  </div>
 		              </label>
 		          </div>
 		            <div>
-		              <input type="checkbox" name="checkbox1_1" id="checkbox7" value="G">
+		              <input type="checkbox" name="" id="checkbox7">
 		              <label for="checkbox7">
 		                  <div>
 		                      <span>울산</span>
@@ -330,7 +332,7 @@
 		              <input type="checkbox" name="checkbox2_1" id="checkbox15">
 		              <label for="checkbox15">
 		                  <div>
-		                      <span>광주</span>
+		                      <span>제주도</span>
 		                  </div>
 		              </label>
 		          </div>
@@ -351,11 +353,10 @@
 		              </label>
 		          </div>
 				 </div>
-		  
 		   </div>
-
+		   
               <hr>
-
+              
                         <div style="margin-bottom: 15px;">
               <span style="font-size: 30px; font-weight: bold;">여행 테마</span>
           </div>
@@ -383,214 +384,154 @@
                   </div>
               </label>
           </div>
-
-              <hr>
-
+			<hr>
               <div class="revboard">
                 <a href="#"><img th:src="@{/img/리뷰게시판이미지.png}" class="revImg"></a>
               </div>
 
           
-          
-      </div>
-	
-      <div class="taste-midcon">
-
-      </div>
-  </div>
-</div>
-
-<div class="taste-middle-outer3" style="display: none;">
-  <div class="taste-middle">
-      <div class="taste-middle-text">
-          <span id="play-travel">놀거리 여행</span>
-      </div>
-  </div>
-  <div class="taste-middle2">
-      <div class="taste-sidecheck">
-          <div style="margin-bottom: 15px;">
-            <span style="font-size: 30px; font-weight: bold;">지역</span>
-          </div>
-          <div class="sidewrap">
-          	<div class="sideleft">
-		          <div>
-		              <input type="checkbox" name="checkbox3_1" id="checkbox21">
-		              <label for="checkbox20">
-		                  <div>
-		                      <span>서울</span>
-		                  </div>
-		              </label>
-		          </div>
-		          <div>
-		              <input type="checkbox" name="checkbox3_1" id="checkbox22">
-		              <label for="checkbox21">
-		                  <div>
-		                      <span>부산</span>
-		                  </div>
-		              </label>
-		          </div>
-		          <div>
-		              <input type="checkbox" name="checkbox3_1" id="checkbox23">
-		              <label for="checkbox22">
-		                  <div>
-		                      <span>대구</span>
-		                  </div>
-		              </label>
-		          </div>
-		            <div>
-		              <input type="checkbox" name="checkbox3_1" id="checkbox24">
-		              <label for="checkbox23">
-		                  <div>
-		                      <span>인천</span>
-		                  </div>
-		              </label>
-		          </div>
-		          </div>
-
-		          <div class="sideright">
-		            <div>
-		              <input type="checkbox" name="checkbox3_1" id="checkbox25">
-		              <label for="checkbox24">
-		                  <div>
-		                      <span>광주</span>
-		                  </div>
-		              </label>
-		          </div>
-		            <div>
-		              <input type="checkbox" name="checkbox3_1" id="checkbox26">
-		              <label for="checkbox25">
-		                  <div>
-		                      <span>대전</span>
-		                  </div>
-		              </label>
-		          </div>
-		            <div>
-		              <input type="checkbox" name="checkbox3_1" id="checkbox27">
-		              <label for="checkbox26">
-		                  <div>
-		                      <span>울산</span>
-		                  </div>
-		              </label>
-		          </div>
-				 </div>
-		  
-		   </div>
-
-              <hr>
-
-                        <div style="margin-bottom: 15px;">
-              <span style="font-size: 30px; font-weight: bold;">여행 테마</span>
-          </div>
-          <div>
-              <input type="radio" name="checkbox3_2" id="checkbox28" value="a" >
-              <label for="checkbox27">
-                  <div>
-                      <span>맛집탐방</span>
-                  </div>
-              </label>
-          </div>
-          <div>
-              <input type="radio" name="checkbox3_2" id="checkbox29"  value="b">
-              <label for="checkbox28">
-                  <div>
-                      <span>자유여행</span>
-                  </div>
-              </label>
-          </div>
-          <div>
-              <input type="radio" name="checkbox3_2" id="checkbox30" value="c" checked>
-              <label for="checkbox29">
-                  <div>
-                      <span>액티비티</span>
-                  </div>
-              </label>
-          </div>
-
-              <hr>
-
-              <div class="revboard">
-                <a href="#"><img th:src="@{/img/리뷰게시판이미지.png}" class="revImg"></a>
-              </div>
+        
 
           
           
       </div>
 
       <div class="taste-midcon">
+
+
+        <div class="midcon-box">
+          <div class="midcon-img">
+            <img th:src="@{/img/고양이.jpg}" alt="">
+          </div>
+          <div class="midcon-text">
+            <strong>제ㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔ목</strong>
+            <p>서울 > xx구 > xx동 | 자유여행 | 2022.05.11</p>
+          </div>
+          <div class="midcon-star">
+          	<p class="glyphicon glyphicon-star"></p>
+          	<p class="glyphicon glyphicon-star"></p>
+          	<p class="glyphicon glyphicon-star"></p>
+          	<p class="glyphicon glyphicon-star"></p>
+          	<p class="glyphicon glyphicon-star"></p>
+          </div>
+        
+     
+
+      </div>
+  
+        <div class="midcon-box">
+          <div class="midcon-img">
+            <img th:src="@{/img/고양이.jpg}" alt="">
+          </div>
+          <div class="midcon-text">
+            <strong>제ㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔ목</strong>
+            <p>서울 > xx구 > xx동 | 자유여행 | 2022.05.11</p>
+          </div>
+          <div class="midcon-star">
+          	<p class="glyphicon glyphicon-star"></p>
+          	<p class="glyphicon glyphicon-star"></p>
+          	<p class="glyphicon glyphicon-star"></p>
+          	<p class="glyphicon glyphicon-star"></p>
+          	<p class="glyphicon glyphicon-star-empty"></p>
+          </div>
+        </div>
+    
+
+        <div class="midcon-box">
+          <div class="midcon-img">
+            <img th:src="@{/img/고양이.jpg}" alt="">
+          </div>
+          <div class="midcon-text">
+            <strong>제ㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔ목</strong>
+            <p>서울 > xx구 > xx동 | 자유여행 | 2022.05.11</p>
+          </div>
+          <div class="midcon-star">
+          	<p class="glyphicon glyphicon-star"></p>
+          	<p class="glyphicon glyphicon-star-empty"></p>
+          	<p class="glyphicon glyphicon-star-empty"></p>
+          	<p class="glyphicon glyphicon-star-empty"></p>
+          	<p class="glyphicon glyphicon-star-empty"></p>
+
+          </div>
+        </div>
+     
+
+        <div class="midcon-box">
+          <div class="midcon-img">
+            <img th:src="@{/img/고양이.jpg}" alt="">
+          </div>
+          <div class="midcon-text">
+            <strong>제ㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔ목</strong>
+            <p>서울 > xx구 > xx동 | 자유여행 | 2022.05.11</p>
+          </div>
+          <div class="midcon-star">
+          	<p class="glyphicon glyphicon-star"></p>
+          	<p class="glyphicon glyphicon-star"></p>
+          	<p class="glyphicon glyphicon-star"></p>
+          	<p class="glyphicon glyphicon-star"></p>
+          	<p class="glyphicon glyphicon-star"></p>
+          </div>
+        </div>
+        
+         <div class="midcon-box">
+          <div class="midcon-img">
+            <img th:src="@{/img/고양이.jpg}" alt="">
+          </div>
+          <div class="midcon-text">
+            <strong>제ㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔ목</strong>
+            <p>서울 > xx구 > xx동 | 자유여행 | 2022.05.11</p>
+          </div>
+          <div class="midcon-star">
+          	<p class="glyphicon glyphicon-star"></p>
+          	<p class="glyphicon glyphicon-star"></p>
+          	<p class="glyphicon glyphicon-star"></p>
+          	<p class="glyphicon glyphicon-star"></p>
+          	<p class="glyphicon glyphicon-star"></p>
+          </div>
+        </div>
+     
+
       </div>
   </div>
 </div>
 
 
-<th:block th:replace="~{./include/footer :: f_include }"></th:block>
-<script th:inline:"javascript">
+<th:block th:replace="~{/include/footer :: f_include }"></th:block>
+
+
+<script th:inline="javascript">
   // 아이콘 클릭시 해당 클래스가 보여지면서 위치로가기
-  var tasteImg = document.getElementById("tasteImg");
-  var outer = document.querySelector(".taste-middle-outer")
-  var locaImg = document.getElementById("locaImg");
-  var outer2 = document.querySelector(".taste-middle-outer2")
-  var playImg = document.getElementById("playImg");
-  var outer3 = document.querySelector(".taste-middle-outer3")
+  var outer = $(".taste-middle-outer").offset();
+  $("html, body").animate({scrollTop: outer.top}, 500);
 
   tasteImg.onclick = function() {
-    outer.style.display = "block";
-    $("#checkbox8").prop("checked", true);
-    
+    $(".taste-middle-outer").css("display", "block");
+    var outer = $(".taste-middle-outer").offset();
+    $("html, body").animate({scrollTop: outer.top}, 400);
+
 	var theme = 'a';
-	var themeArr = [];
 		$.getJSON("../getFirstCategory?review_theme=" + theme ,function(data){
-			data.forEach(function(result,index){
-				themeArr.push(result);
-			});
-	
-	if($('.taste-middle-outer').find(".taste-midcon").children(".midcon-box").length > 0){
-		$('.taste-middle-outer').find(".taste-midcon").empty();
-		for(var i = 0 ; i < themeArr.length ; i++){
-		var review = themeArr[i];
-		$('.taste-middle-outer').find(".taste-midcon").append(
-		        '<div class="midcon-box">'
-		       + '<div class="midcon-img">'
-		       + '<img src="/display?review_filename=' + review.review_filenames[0] + '&review_uuid='  + review.review_uuids[0] + '&review_filepath=' + review.review_filepaths[0]+ '" >'
-		       + '</div>'
-		       + '<div class="midcon-text">'
-		        + review.review_title
-		        + '<br>'
-		        +'테마:음식'
-		      +  ' </div>'
-		      +  '</div>'
-				);	
-		}							
-	} else{
-		for(var i = 0 ; i < themeArr.length ; i++){
-		var review = themeArr[i];
-		$('.taste-middle-outer').find(".taste-midcon").append(
-		        '<div class="midcon-box">'
-		       + '<div class="midcon-img">'
-		       + '<img src="/display?review_filename=' + review.review_filenames[0] + '&review_uuid='  + review.review_uuids[0] + '&review_filepath=' + review.review_filepaths[0]+ '" >'
-		       + '</div>'
-		       + '<div class="midcon-text">'
-		        + review.review_title
-		        + '<br>'
-		        +'테마:음식'
-		      +  ' </div>'
-		      +  '</div>'
-				);	
-		}				
-	}
-				
+
+			console.log(data);
+
 		});
-	
-    if(outer2.style.display = "block") {
-      outer2.style.display = "none"
-    }
-    if(outer3.style.display = "block") {
-      outer3.style.display = "none"
-    }
+		$("#checkbox1").prop("checked", true);
+		$("#checkbox2").prop("checked", false);
+		$("#checkbox3").prop("checked", false);
+	  
 
   }
 
 
   locaImg.onclick = function() {
+
+    $(".taste-middle-outer").css("display", "block");
+    var outer = $(".taste-middle-outer").offset();
+    $("html, body").animate({scrollTop: outer.top}, 400);
+	var theme = 'b';
+		$.getJSON("../getFirstCategory?review_theme=" + theme ,function(data){
+			console.log(data);
+
     outer2.style.display = "block";
     var theme = 'b';
 	var themeArr = [];
@@ -635,68 +576,28 @@
 		}		
 	}
 		});
-    if(outer.style.display = "block") {
-      outer.style.display = "none"
-    }
-    if(outer3.style.display = "block") {
-      outer3.style.display = "none"
-    }
+		
+		$("#checkbox1").prop("checked", false);
+		$("#checkbox2").prop("checked", true);
+		$("#checkbox3").prop("checked", false);
+
 
   }
 
 
   playImg.onclick = function() {
-    outer3.style.display = "block";
-    var theme = 'c';
-	var themeArr = [];
-	$("#checkbox30").prop("checked", true);
-		$.getJSON("../getFirstCategory?review_theme=" + theme ,function(data){
-			data.forEach(function(result,index){
-				themeArr.push(result);
-			});
-			
-	if($('.taste-middle-outer3').find(".taste-midcon").children(".midcon-box").length > 0){
-		$('.taste-middle-outer3').find(".taste-midcon").empty();
-		for(var i = 0 ; i < themeArr.length ; i++){
-		var review = themeArr[i];
-		$('.taste-middle-outer3').find(".taste-midcon").append(
-		        '<div class="midcon-box">'
-		       + '<div class="midcon-img">'
-		       + '<img src="/display?review_filename=' + review.review_filenames[0] + '&review_uuid='  + review.review_uuids[0] + '&review_filepath=' + review.review_filepaths[0]+ '" >'
-		       + '</div>'
-		       + '<div class="midcon-text">'
-		        + review.review_title
-		        + '<br>'
-		        +'테마:음식'
-		      +  ' </div>'
-		      +  '</div>'
-				);	
-		}	
-	} else{
-		for(var i = 0 ; i < themeArr.length ; i++){
-		var review = themeArr[i];
-		$('.taste-middle-outer3').find(".taste-midcon").append(
-		        '<div class="midcon-box">'
-		       + '<div class="midcon-img">'
-		       + '<img src="/display?review_filename=' + review.review_filenames[0] + '&review_uuid='  + review.review_uuids[0] + '&review_filepath=' + review.review_filepaths[0]+ '" >'
-		       + '</div>'
-		       + '<div class="midcon-text">'
-		        + review.review_title
-		        + '<br>'
-		        +'테마:음식'
-		      +  ' </div>'
-		      +  '</div>'
-				);	
-		}							
-	}
-		});
-    if(outer2.style.display = "block") {
-      outer2.style.display = "none"
-    }
-    if(outer.style.display = "block") {
-      outer.style.display = "none"
-    }
 
+    $(".taste-middle-outer").css("display", "block");
+    var outer = $(".taste-middle-outer").offset();
+    $("html, body").animate({scrollTop: outer.top}, 400);
+	var theme = 'c';
+		$.getJSON("../getFirstCategory?review_theme=" + theme ,function(data){
+			console.log(data);
+		});
+		$("#checkbox1").prop("checked", false);
+		$("#checkbox2").prop("checked", false);
+		$("#checkbox3").prop("checked", true);
+	
   }
 </script>
 
@@ -734,18 +635,18 @@
 
 
 
+
 $("input[name='checkbox1_1']").on('change', function(e){
 	var review_groups = [];
 	var review_theme;
-	
+
 	for(var i =0 ; i < $("input[name='checkbox1_1']:checked").length ; i++){
-		review_groups.push($("input[name='checkbox1_1']:checked")[i].value);
+		console.log($("input[name='checkbox1_1']:checked")[i].value);
 	}
 	for(var i =0 ; i < $("input[name='checkbox1_2']:checked").length ; i++){
-		review_theme = $("input[name='checkbox1_2']:checked")[i].value;
+		console.log($("input[name='checkbox1_2']:checked")[i].value);
 	}
 
-	
 $.getJSON("../getSecondCategory?review_theme=" + review_theme + "&review_groups=" + review_groups  ,function(data){		
 	console.log(data);
 
@@ -789,8 +690,9 @@ $.getJSON("../getSecondCategory?review_theme=" + review_theme + "&review_groups=
 	console.log(data);
 
 	})
-
+  
 });
+
 
 
 function detail_function(x){
@@ -1012,7 +914,9 @@ function hideMarker(map, marker) {
 
   $(".img img").click(function(e){
 	
-		
+	  	/* 이미지클릭시 유튜브화면보이게 이동 */
+	  	var outer = $(".img img").offset();
+	    $("html, body").animate({scrollTop: outer.top}, 400);	
 	
 
 		if($(e.target).parent().parent().next().html() == '강원'){
@@ -1061,13 +965,12 @@ function hideMarker(map, marker) {
 		}		
 		
 	})
-
+	
   $(".img img").mouseleave(function(e){
     $(e.target).parent().parent().next().next().text(text);
   });
   
 });
-
 
 
 (function() {
@@ -1076,7 +979,9 @@ function hideMarker(map, marker) {
 		alert(msg);
 	}
 })();
+	
 
+  
 
   
 </script>
