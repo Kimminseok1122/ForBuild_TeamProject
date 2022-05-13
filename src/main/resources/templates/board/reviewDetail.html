@@ -109,7 +109,10 @@
                                             </table>
                                             <div class="btn_area">
                                             	<input type="button" class="save" onclick="location.href='reviewBoard' " value="목록">
+                                            	<!-- 작성자만 수정버튼 보이게 -->
+                                            	<th:block th:if="${detailVO.review_writer} == ${session.userVO.user_name}">
                                             	<input type="button" class="save" value="수정"  th:onclick="|modify_function()|">
+                                            	</th:block>
                                                 
                                             </div>
                                         </li>
@@ -128,7 +131,7 @@
 
     
      <th:block th:replace="~{/include/footer :: f_include }"></th:block>
-     </script>
+
 
 <script th:inlin="javascript">
 

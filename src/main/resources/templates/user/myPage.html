@@ -109,19 +109,16 @@
                         <th class="tag">제목</td>
                           <th class="tag">등록일</td>
                     </tr>
-                    
+                    <!-- 내가 쓴 리뷰리스트, review writer가 session user_id랑 같은 리뷰 -->
+                    <th:block th:each="vo,state : ${reviewVO}">
                     <tr>
-                      <td>1</td>
-                        <td>서울</td>
-                        <td><a href="#">제목을 클릭하면 리뷰 상세보기</a></td>
-                        <td>yyyy-MM-dd</td>
+                      <td>[[${vo.review_no}]]</td>
+                        <td>[[${vo.review_category}]]</td>
+                        <td><a th:href="@{/board/reviewDetail(review_no=${vo.review_no})}">[[${vo.review_title}]]</a></td>
+                        <td>[[${vo.review_regDate}]]</td>
                       </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>경기도</td>
-                        <td><a href="#">제목을 클릭하면 리뷰 상세보기</a></td>
-                        <td>yyyy-MM-dd</td>
-                      </tr>
+                    </th:block>
+                     
                     </table>
 
                     <table class="favoritesTable" id="favorites">

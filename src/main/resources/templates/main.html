@@ -48,7 +48,7 @@
 	 	var userVO = '[[${session.userVO}]]';
 	 	/* userVO가 공백이 아니고, cookie가 N이 아닐때 팝업호출 */
 	 	if(userVO != "" & cookieCheck != "N"){
-	 	 	window.open(url, "examine", "width=650, height=800, left=300, top=100");
+	 	 	window.open(url, "examine", "width=650, height=830, left=300, top=100");
 	 		  
 	 	}
 	  }
@@ -161,7 +161,6 @@
 <div class="taste-middle-outer" style="display: none;">
   <div class="taste-middle">
       <div class="taste-middle-text">
-          <span id="taste-travel">먹거리 여행</span>
       </div>
   </div>
   <div class="taste-middle2">
@@ -702,7 +701,9 @@ function hideMarker(map, marker) {
 
   $(".img img").click(function(e){
 	
-		
+	  	/* 이미지클릭시 유튜브화면보이게 이동 */
+	  	var outer = $(".img img").offset();
+	    $("html, body").animate({scrollTop: outer.top}, 400);	
 	
 
 		if($(e.target).parent().parent().next().html() == '강원'){
@@ -751,7 +752,7 @@ function hideMarker(map, marker) {
 		}		
 		
 	})
-
+	
   $(".img img").mouseleave(function(e){
     $(e.target).parent().parent().next().next().text(text);
   });

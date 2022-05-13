@@ -37,21 +37,21 @@
                           <th class="title">현재비밀번호</th>
                           <td class="info">
                             <!-- 현재비밀번호 일치해야 변경가능-->
-                            <input type="password" placeholder="현재비밀번호" >
+                            <input type="password" placeholder="현재비밀번호" th:value="${session.userVO.user_pw}">
                           </td>
                         </tr>
                         
                         <tr>
                           <th class="title">새 비밀번호</th>
                           <td class="info">
-                              <input type="password" placeholder="새 비밀번호" name="user_pw">
+                              <input type="password" placeholder="새 비밀번호" name="user_pw" th:value="${session.userVO.user_pw}">
                             </td>
                       </tr>
   
                       <tr>
                         <th class="title">새 비밀번호 확인</th>
                           <td class="info">
-                              <input type="password" placeholder="새 비밀번호 확인" >
+                              <input type="password" placeholder="새 비밀번호 확인" th:value="${session.userVO.user_pw}">
                             </td>
                       </tr>
                       

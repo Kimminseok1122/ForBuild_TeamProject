@@ -38,7 +38,7 @@
               </a></li>
               </th:block>
               <th:block th:unless="${session.userVO} == null">
-                 <li ><a th:href="@{/user/myPage(user_no=${session.userVO.user_no})}">
+                 <li ><a th:href="@{/user/myPage(user_no=${session.userVO.user_no}, user_name=${session.userVO.user_name})}">
                  마이페이지
                  </a></li>
               </th:block>

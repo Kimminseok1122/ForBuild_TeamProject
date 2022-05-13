@@ -29,15 +29,15 @@
                         <form action="joinform" method="post">
                             <ul>
                                 <li><strong>아이디</strong><br>
-                                    <input type="text" placeholder="아이디 4~8자" name="user_id" pattern="[A-Za-z0-9]{4,8}"></li>
+                                    <input type="text" placeholder="아이디 4~8자" name="user_id" pattern="[A-Za-z0-9]{4,8}" required></li>
                                 <li><strong>비밀번호</strong><br>
-                                    <input type="password" placeholder="6~12자" name="user_pw" pattern="[A-Za-z0-9]{6,12}"></li>
+                                    <input type="password" placeholder="6~12자" name="user_pw" pattern="[A-Za-z0-9]{6,12}" required></li>
                                 <li><strong>비밀번호확인</strong><br>
-                                    <input type="password" placeholder="비밀번호 확인" name="user_pwck" pattern="[A-Za-z0-9]{6,12}"></li>
+                                    <input type="password" placeholder="비밀번호 확인" name="user_pwck" pattern="[A-Za-z0-9]{6,12}" required></li>
                                 <li><strong>이름</strong><br>
-                                    <input type="text" placeholder="이름" name="user_name"></li>
+                                    <input type="text" placeholder="이름" name="user_name" required></li>
                                 <li><strong>나이</strong><br>
-                                    <input type="text" placeholder="나이" name="user_age" pattern="[0-9]{1,3}"></li>
+                                    <input type="text" placeholder="나이" name="user_age" pattern="[0-9]{1,3}" required></li>
                                 <li>
                                     <strong>성별</strong><br>
                                     <select name="user_gender" id="gender">

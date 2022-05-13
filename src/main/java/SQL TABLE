@@ -38,11 +38,13 @@ CREATE TABLE REVIEW_UPLOAD(
 ===================================upload 
 
 CREATE TABLE message(
-	mno int primary key auto_increment,
+   mno int primary key auto_increment,
     msender varchar(50) not null,
     mreceiver varchar(50) not null,
     mcontent varchar(2000) not null,
-    msenddate timestamp default now()
+    msenddate timestamp default now(),
+    mopendate timestamp default now(),
+    mcheck int 
 );
 
 ===================================message

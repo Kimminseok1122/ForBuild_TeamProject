@@ -257,4 +257,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</foreach>
 	</select>
 	
+	<select id="myreviewList" resultType="reviewVO">
+		select * from reviewboard
+		where review_writer = #{user_name}
+	</select>
+	
 </mapper>

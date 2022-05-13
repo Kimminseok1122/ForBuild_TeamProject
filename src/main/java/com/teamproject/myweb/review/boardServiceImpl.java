@@ -317,6 +317,11 @@ public class boardServiceImpl implements boardService{
 		return null;
 	}
 
+	@Override
+	public ArrayList<reviewVO> myreviewList(String user_name) {
+		return boardmapper.myreviewList(user_name);
+	}
+
 	
 	
 	

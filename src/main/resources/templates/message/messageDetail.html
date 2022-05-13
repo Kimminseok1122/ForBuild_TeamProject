@@ -11,10 +11,12 @@
 </head>
 <body>
 
-    <form action="messageDetail" name="messageDetail" method="get">
+    <form action="messageDetail" name="messageDetail" method="post">
        <div class="box">
            <h3 class="title">보낸메시지</h3>
            <h4 class="sender">TO.[[${mesVO.mreceiver}]]</h4>
+           <input type="hidden" name="mno" th:value="${mesVO.mno}">     
+		   <input type="hidden" name="user_id" th:value="${session.userVO.user_id}">  
 
            <div class="containerbox">
                <div class="innerbox">

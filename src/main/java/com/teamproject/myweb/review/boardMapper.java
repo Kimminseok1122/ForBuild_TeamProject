@@ -27,6 +27,8 @@ public interface boardMapper {
 	
 	public ArrayList<reviewVO> reviewList(review_Criteria cri);
 	
+	public ArrayList<reviewVO> myreviewList(String user_name);
+	
 	public int reviewTotal(review_Criteria cri);
 	
 	public reviewVO getDetail(int review_no);

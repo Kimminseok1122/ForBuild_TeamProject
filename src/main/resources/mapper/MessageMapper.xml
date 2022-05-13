@@ -44,11 +44,11 @@
    </select>
    
    <select id="getReceiveDetail" resultType="MessageVO">
-      select * from message where mno = #{mno} 
+      select * from message where mno = #{mno}
    </select>
    
    <select id="getSendDetail" resultType="MessageVO">
-      select * from message where mno = #{mno} 
+      select * from message where mno = #{mno}
    </select>
    
    <delete id="delete">

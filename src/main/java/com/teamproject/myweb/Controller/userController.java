@@ -1,11 +1,17 @@
 package com.teamproject.myweb.Controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +21,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.teamproject.myweb.command.ExamineVO;
 import com.teamproject.myweb.command.UserCheckVO;
 import com.teamproject.myweb.command.UserVO;
+import com.teamproject.myweb.command.reviewVO;
+import com.teamproject.myweb.review.boardService;
 import com.teamproject.myweb.user.UserService;
+import com.teamproject.myweb.util.review_Criteria;
 
 @Controller
 @RequestMapping("/user")
@@ -25,12 +34,20 @@ public class userController {
 	@Qualifier("userService")
 	private UserService userService;
 	
+	@Autowired
+	@Qualifier("boardService")
+	private boardService boardservice;
 
 	@GetMapping("/myPage")
 	public String myPage(@RequestParam("user_no") int user_no,
-			Model model) {
+						 @RequestParam("user_name") String user_name,
+						 review_Criteria cri,
+						 Model model) {
 
+		ArrayList<reviewVO> reviewVO = boardservice.myreviewList(user_name);
 		UserVO userVO = userService.myPage(user_no);
+		
+		model.addAttribute("reviewVO", reviewVO);
 		model.addAttribute("userVO", userVO);
 
 		return "user/myPage";
@@ -44,11 +61,25 @@ public class userController {
 	}
 
 	@PostMapping("/modify")
-	public String modify(UserVO vo) {
-		System.out.println(vo.toString());
-		userService.modify(vo);
-
-		return "redirect:/main";
+	public String modify(UserVO vo,
+						 UserCheckVO cvo,
+						 HttpSession session,
+						 RedirectAttributes RA) {
+		
+		int result = userService.modify(vo);
+		
+		if(result == 1) {
+			//정보수정시 세션 다시저장
+			session.removeAttribute("userVO");
+			UserVO userVO = userService.userCheckes(cvo);
+			session.setAttribute("userVO", userVO);
+			RA.addFlashAttribute("msg", "정보가 수정되었습니다. 다시 로그인 해주세요");
+			return "redirect:/main";
+		} else {
+			RA.addFlashAttribute("msg", "수정 실패");
+			return "redirect:/user/myModify";
+		}
+		
 	}
 
 	@GetMapping("/userLogin")
@@ -57,9 +88,11 @@ public class userController {
 	}
 
 	@PostMapping("/userCheck")
-	public String userCheck(HttpSession session, UserCheckVO vo,Model model) {
+	public String userCheck(UserCheckVO vo,
+							HttpSession session,
+							Model model) {
 
-		System.out.println(vo.toString());
+		
 		UserVO userVO = userService.userCheckes(vo);
 		if(userVO == null) {
 			model.addAttribute(vo);

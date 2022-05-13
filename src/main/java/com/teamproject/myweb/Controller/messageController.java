@@ -32,7 +32,7 @@ public class messageController {
    @GetMapping("/messageReceiveList")
    public String messageReceiveList(@RequestParam("user_id") String user_id,
 		   							Model model, HttpSession session, Criteria cri) {
-      System.out.println(user_id);
+	   
       PageVO receivepageVO = new PageVO(cri, messageService.getReceiveTotal(user_id));
       cri.setPagee((cri.getPage() - 1) * cri.getAmount());
       
@@ -40,7 +40,6 @@ public class messageController {
       //세션의 값을 얻어서 리스트의 매개변수로 전달.
 
       ArrayList<MessageVO> re_list = messageService.re_getList(user_id, cri);
-      System.out.println(session.toString());
       
       model.addAttribute("receiveList", re_list);
       model.addAttribute("receivepageVO", receivepageVO);
@@ -56,7 +55,6 @@ public class messageController {
       cri.setPagee((cri.getPage() - 1) * cri.getAmount());
       ArrayList<MessageVO> list = messageService.getList(user_id, cri);
       
-      System.out.println(list.toString());
       model.addAttribute("senderList", list);
       model.addAttribute("sendpageVO", sendpageVO);
       
@@ -110,9 +108,10 @@ public class messageController {
    }
    
    //삭제
-   @GetMapping("/deleteReceiveMessage")
+   @PostMapping("/deleteReceiveMessage")
    public String deleteReceiveMessage(@RequestParam("mno") int mno,
-                              RedirectAttributes RA) {
+		   							  @RequestParam("user_id") String user_id,
+		   							  RedirectAttributes RA) {
       int result = messageService.delete(mno);
       
       if(result == 1) {
@@ -121,12 +120,13 @@ public class messageController {
          RA.addFlashAttribute("msg", "삭제에 실패했습니다");
       }
       
-      return "redirect:/message/messageReceiveList";
+      return "redirect:/message/messageReceiveList?user_id=" + user_id;
    }
    //삭제
-   @GetMapping("/deleteSendMessage")
+   @PostMapping("/deleteSendMessage")
    public String deleteSendMessage(@RequestParam("mno") int mno,
-                           RedirectAttributes RA) {
+		   						   @RequestParam("user_id") String user_id,
+		   						   RedirectAttributes RA) {
       
       int result = messageService.delete(mno);
       
@@ -136,9 +136,8 @@ public class messageController {
          RA.addFlashAttribute("msg", "메시지 삭제에 실패했습니다");
       }
       
-      System.out.println(result);
       
-      return "redirect:/message/messageSendList";
+      return "redirect:/message/messageSendList?user_id=" + user_id;
    }
 
    
