@@ -47,6 +47,8 @@ public class RestApiController {
 		
 		System.out.println(Arrays.toString(review_groups));
 		
+		System.out.println(review_theme);
+		
 		ArrayList<MainVO> list = boardservice.getSecondCategory(review_theme, review_groups);
 
 		return null;

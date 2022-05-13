@@ -41,8 +41,6 @@ public class boardServiceImpl implements boardService{
 	@Override
 	public int reviewRegist(reviewVO vo, List<MultipartFile> list, HashMap<Integer, Review_CategoryVO> map) {
 		
-		System.out.println(vo.toString());
-		
 		int result = boardmapper.reviewRegist(vo);
 		
 		for(MultipartFile f : list) {
@@ -57,7 +55,6 @@ public class boardServiceImpl implements boardService{
 			
 			String savename = uploadpath + "\\" + filepath + "\\" + uuid + "_" + filename;
 			
-			System.out.println(savename);
 			
 			File file = new File(savename);
 			

@@ -368,7 +368,7 @@
               </label>
           </div>
           <div>
-              <input type="radio" name="checkbox2_2" id="checkbox18"  value="b" checked>
+              <input type="radio" name="checkbox2_2" id="checkbox19"  value="b" checked>
               <label for="checkbox2">
                   <div>
                       <span>자유여행</span>
@@ -376,7 +376,7 @@
               </label>
           </div>
           <div>
-              <input type="radio" name="checkbox2_2" id="checkbox19" value="c">
+              <input type="radio" name="checkbox2_2" id="checkbox20" value="c">
               <label for="checkbox3">
                   <div>
                       <span>액티비티</span>
@@ -414,7 +414,7 @@
           <div class="sidewrap">
           	<div class="sideleft">
 		          <div>
-		              <input type="checkbox" name="checkbox3_1" id="checkbox20">
+		              <input type="checkbox" name="checkbox3_1" id="checkbox21">
 		              <label for="checkbox20">
 		                  <div>
 		                      <span>서울</span>
@@ -422,7 +422,7 @@
 		              </label>
 		          </div>
 		          <div>
-		              <input type="checkbox" name="checkbox3_1" id="checkbox21">
+		              <input type="checkbox" name="checkbox3_1" id="checkbox22">
 		              <label for="checkbox21">
 		                  <div>
 		                      <span>부산</span>
@@ -430,7 +430,7 @@
 		              </label>
 		          </div>
 		          <div>
-		              <input type="checkbox" name="checkbox3_1" id="checkbox22">
+		              <input type="checkbox" name="checkbox3_1" id="checkbox23">
 		              <label for="checkbox22">
 		                  <div>
 		                      <span>대구</span>
@@ -438,7 +438,7 @@
 		              </label>
 		          </div>
 		            <div>
-		              <input type="checkbox" name="checkbox3_1" id="checkbox23">
+		              <input type="checkbox" name="checkbox3_1" id="checkbox24">
 		              <label for="checkbox23">
 		                  <div>
 		                      <span>인천</span>
@@ -449,7 +449,7 @@
 
 		          <div class="sideright">
 		            <div>
-		              <input type="checkbox" name="checkbox3_1" id="checkbox24">
+		              <input type="checkbox" name="checkbox3_1" id="checkbox25">
 		              <label for="checkbox24">
 		                  <div>
 		                      <span>광주</span>
@@ -457,7 +457,7 @@
 		              </label>
 		          </div>
 		            <div>
-		              <input type="checkbox" name="checkbox3_1" id="checkbox25">
+		              <input type="checkbox" name="checkbox3_1" id="checkbox26">
 		              <label for="checkbox25">
 		                  <div>
 		                      <span>대전</span>
@@ -465,7 +465,7 @@
 		              </label>
 		          </div>
 		            <div>
-		              <input type="checkbox" name="checkbox3_1" id="checkbox26">
+		              <input type="checkbox" name="checkbox3_1" id="checkbox27">
 		              <label for="checkbox26">
 		                  <div>
 		                      <span>울산</span>
@@ -482,7 +482,7 @@
               <span style="font-size: 30px; font-weight: bold;">여행 테마</span>
           </div>
           <div>
-              <input type="radio" name="checkbox3_2" id="checkbox27" value="a" >
+              <input type="radio" name="checkbox3_2" id="checkbox28" value="a" >
               <label for="checkbox27">
                   <div>
                       <span>맛집탐방</span>
@@ -490,7 +490,7 @@
               </label>
           </div>
           <div>
-              <input type="radio" name="checkbox3_2" id="checkbox28"  value="b">
+              <input type="radio" name="checkbox3_2" id="checkbox29"  value="b">
               <label for="checkbox28">
                   <div>
                       <span>자유여행</span>
@@ -498,7 +498,7 @@
               </label>
           </div>
           <div>
-              <input type="radio" name="checkbox3_2" id="checkbox29" value="c" checked>
+              <input type="radio" name="checkbox3_2" id="checkbox30" value="c" checked>
               <label for="checkbox29">
                   <div>
                       <span>액티비티</span>
@@ -534,28 +534,50 @@
 
   tasteImg.onclick = function() {
     outer.style.display = "block";
+    $("#checkbox8").prop("checked", true);
+    
 	var theme = 'a';
 	var themeArr = [];
 		$.getJSON("../getFirstCategory?review_theme=" + theme ,function(data){
 			data.forEach(function(result,index){
 				themeArr.push(result);
 			});
-			
-	for(var i = 0 ; i < themeArr.length ; i++){
-	var review = themeArr[i];
-	$('.taste-middle-outer').find(".taste-midcon").append(
-	        '<div class="midcon-box">'
-	       + '<div class="midcon-img">'
-	       + '<img src="/display?review_filename=' + review.review_filenames[0] + '&review_uuid='  + review.review_uuids[0] + '&review_filepath=' + review.review_filepaths[0]+ '" >'
-	       + '</div>'
-	       + '<div class="midcon-text">'
-	        + review.review_title
-	        + '<br>'
-	        +'테마:음식'
-	      +  ' </div>'
-	      +  '</div>'
-			);	
-	}					
+	
+	if($('.taste-middle-outer').find(".taste-midcon").children(".midcon-box").length > 0){
+		$('.taste-middle-outer').find(".taste-midcon").empty();
+		for(var i = 0 ; i < themeArr.length ; i++){
+		var review = themeArr[i];
+		$('.taste-middle-outer').find(".taste-midcon").append(
+		        '<div class="midcon-box">'
+		       + '<div class="midcon-img">'
+		       + '<img src="/display?review_filename=' + review.review_filenames[0] + '&review_uuid='  + review.review_uuids[0] + '&review_filepath=' + review.review_filepaths[0]+ '" >'
+		       + '</div>'
+		       + '<div class="midcon-text">'
+		        + review.review_title
+		        + '<br>'
+		        +'테마:음식'
+		      +  ' </div>'
+		      +  '</div>'
+				);	
+		}							
+	} else{
+		for(var i = 0 ; i < themeArr.length ; i++){
+		var review = themeArr[i];
+		$('.taste-middle-outer').find(".taste-midcon").append(
+		        '<div class="midcon-box">'
+		       + '<div class="midcon-img">'
+		       + '<img src="/display?review_filename=' + review.review_filenames[0] + '&review_uuid='  + review.review_uuids[0] + '&review_filepath=' + review.review_filepaths[0]+ '" >'
+		       + '</div>'
+		       + '<div class="midcon-text">'
+		        + review.review_title
+		        + '<br>'
+		        +'테마:음식'
+		      +  ' </div>'
+		      +  '</div>'
+				);	
+		}				
+	}
+				
 		});
 	
     if(outer2.style.display = "block") {
@@ -572,26 +594,46 @@
     outer2.style.display = "block";
     var theme = 'b';
 	var themeArr = [];
+	$("#checkbox19").prop("checked", true);
 		$.getJSON("../getFirstCategory?review_theme=" + theme ,function(data){
 			data.forEach(function(result,index){
 				themeArr.push(result);
 			});
 			
-	for(var i = 0 ; i < themeArr.length ; i++){
-	var review = themeArr[i];
-	$('.taste-middle-outer2').find(".taste-midcon").append(
-	        '<div class="midcon-box">'
-	       + '<div class="midcon-img">'
-	       + '<img src="/display?review_filename=' + review.review_filenames[0] + '&review_uuid='  + review.review_uuids[0] + '&review_filepath=' + review.review_filepaths[0]+ '" >'
-	       + '</div>'
-	       + '<div class="midcon-text">'
-	        + review.review_title
-	        + '<br>'
-	        +'테마:음식'
-	      +  ' </div>'
-	      +  '</div>'
-			);	
-	}					
+	if($('.taste-middle-outer2').find(".taste-midcon").children(".midcon-box").length > 0){
+		$('.taste-middle-outer2').find(".taste-midcon").empty();
+		for(var i = 0 ; i < themeArr.length ; i++){
+		var review = themeArr[i];
+		$('.taste-middle-outer2').find(".taste-midcon").append(
+		        '<div class="midcon-box">'
+		       + '<div class="midcon-img">'
+		       + '<img src="/display?review_filename=' + review.review_filenames[0] + '&review_uuid='  + review.review_uuids[0] + '&review_filepath=' + review.review_filepaths[0]+ '" >'
+		       + '</div>'
+		       + '<div class="midcon-text">'
+		        + review.review_title
+		        + '<br>'
+		        +'테마:음식'
+		      +  ' </div>'
+		      +  '</div>'
+				);	
+		}				
+	} else{
+		for(var i = 0 ; i < themeArr.length ; i++){
+		var review = themeArr[i];
+		$('.taste-middle-outer2').find(".taste-midcon").append(
+		        '<div class="midcon-box">'
+		       + '<div class="midcon-img">'
+		       + '<img src="/display?review_filename=' + review.review_filenames[0] + '&review_uuid='  + review.review_uuids[0] + '&review_filepath=' + review.review_filepaths[0]+ '" >'
+		       + '</div>'
+		       + '<div class="midcon-text">'
+		        + review.review_title
+		        + '<br>'
+		        +'테마:음식'
+		      +  ' </div>'
+		      +  '</div>'
+				);	
+		}		
+	}
 		});
     if(outer.style.display = "block") {
       outer.style.display = "none"
@@ -607,26 +649,46 @@
     outer3.style.display = "block";
     var theme = 'c';
 	var themeArr = [];
+	$("#checkbox30").prop("checked", true);
 		$.getJSON("../getFirstCategory?review_theme=" + theme ,function(data){
 			data.forEach(function(result,index){
 				themeArr.push(result);
 			});
 			
-	for(var i = 0 ; i < themeArr.length ; i++){
-	var review = themeArr[i];
-	$('.taste-middle-outer3').find(".taste-midcon").append(
-	        '<div class="midcon-box">'
-	       + '<div class="midcon-img">'
-	       + '<img src="/display?review_filename=' + review.review_filenames[0] + '&review_uuid='  + review.review_uuids[0] + '&review_filepath=' + review.review_filepaths[0]+ '" >'
-	       + '</div>'
-	       + '<div class="midcon-text">'
-	        + review.review_title
-	        + '<br>'
-	        +'테마:음식'
-	      +  ' </div>'
-	      +  '</div>'
-			);	
-	}					
+	if($('.taste-middle-outer3').find(".taste-midcon").children(".midcon-box").length > 0){
+		$('.taste-middle-outer3').find(".taste-midcon").empty();
+		for(var i = 0 ; i < themeArr.length ; i++){
+		var review = themeArr[i];
+		$('.taste-middle-outer3').find(".taste-midcon").append(
+		        '<div class="midcon-box">'
+		       + '<div class="midcon-img">'
+		       + '<img src="/display?review_filename=' + review.review_filenames[0] + '&review_uuid='  + review.review_uuids[0] + '&review_filepath=' + review.review_filepaths[0]+ '" >'
+		       + '</div>'
+		       + '<div class="midcon-text">'
+		        + review.review_title
+		        + '<br>'
+		        +'테마:음식'
+		      +  ' </div>'
+		      +  '</div>'
+				);	
+		}	
+	} else{
+		for(var i = 0 ; i < themeArr.length ; i++){
+		var review = themeArr[i];
+		$('.taste-middle-outer3').find(".taste-midcon").append(
+		        '<div class="midcon-box">'
+		       + '<div class="midcon-img">'
+		       + '<img src="/display?review_filename=' + review.review_filenames[0] + '&review_uuid='  + review.review_uuids[0] + '&review_filepath=' + review.review_filepaths[0]+ '" >'
+		       + '</div>'
+		       + '<div class="midcon-text">'
+		        + review.review_title
+		        + '<br>'
+		        +'테마:음식'
+		      +  ' </div>'
+		      +  '</div>'
+				);	
+		}							
+	}
 		});
     if(outer2.style.display = "block") {
       outer2.style.display = "none"
