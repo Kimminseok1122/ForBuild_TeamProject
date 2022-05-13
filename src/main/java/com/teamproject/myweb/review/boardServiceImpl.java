@@ -311,7 +311,34 @@ public class boardServiceImpl implements boardService{
 	@Override
 	public ArrayList<MainVO> getSecondCategory(String review_theme, String[] review_groups) {
 		ArrayList<MainVO> list = boardmapper.getSecondCategory( review_theme, Arrays.asList(review_groups)  );
-		return list;
+		ArrayList<MainVO> newlist = new ArrayList<>();
+		int i = 0;
+		for(MainVO vo : list) {
+			
+		String[] review_filenames  = {list.get(i).getReview_filename() , list.get(i+1).getReview_filename()};
+		String[] review_filepaths  = {list.get(i).getReview_filepath() , list.get(i+1).getReview_filepath()};
+		String[] review_fileuuids  = {list.get(i).getReview_uuid() , list.get(i+1).getReview_uuid()};
+		
+		
+		MainVO newvo =	MainVO.builder().review_title(list.get(i).getReview_title())
+				.review_lat(list.get(i).getReview_lat())
+				.review_lng(list.get(i).getReview_lng())
+				.review_category(list.get(i).getReview_category())
+				.review_realaddress(list.get(i).getReview_realaddress())
+				.review_filenames(review_filenames)
+				.review_filepaths(review_filepaths)
+				.review_uuids(review_fileuuids)
+				.review_no(list.get(i).getReview_no())
+				.review_group(list.get(i).getReview_group())
+				.review_theme(review_theme)
+				.build();				
+		newlist.add(newvo);
+		System.out.println(newlist.toString());
+		i++;
+		i++;
+		if(i == list.size())break;
+		}
+		return newlist;
 	}
 
 	@Override

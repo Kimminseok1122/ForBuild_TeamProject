@@ -37,7 +37,6 @@ public class RestApiController {
 	public ArrayList<MainVO> getFirstCategory(@RequestParam("review_theme") String review_theme) {
 		
 		ArrayList<MainVO> list = boardservice.getFirstCategory(review_theme);
-
 		return list;
 	}
 	
@@ -45,13 +44,11 @@ public class RestApiController {
 	public ArrayList<MainVO> getSecondCategory(@RequestParam("review_theme") String review_theme,
 											   @RequestParam("review_groups") String[] review_groups) {
 		
-		System.out.println(Arrays.toString(review_groups));
-		
-		System.out.println(review_theme);
 		
 		ArrayList<MainVO> list = boardservice.getSecondCategory(review_theme, review_groups);
-
-		return null;
+	
+		
+		return list;
 	}
 	
 	@GetMapping("/display")

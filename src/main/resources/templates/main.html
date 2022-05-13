@@ -55,8 +55,6 @@
 	
   </script>
 
-
-
 </head>
 <body onload="javascript:popUp('/user/examine')">
 <iframe name="hframe4" style="display: none;"></iframe>
@@ -161,6 +159,7 @@
 <div class="taste-middle-outer" style="display: none;">
   <div class="taste-middle">
       <div class="taste-middle-text">
+          <span id="taste-travel">먹거리 여행</span>
       </div>
   </div>
   <div class="taste-middle2">
@@ -171,59 +170,57 @@
           <div class="sidewrap">
           	<div class="sideleft">
 		          <div>
-		              <input type="checkbox" name="" id="checkbox5">
-		              <label for="checkbox5">
+		              <input type="checkbox" name="checkbox1_1" id="checkbox1" value="A">
+		              <label for="checkbox1">
 		                  <div>
 		                      <span>서울</span>
 		                  </div>
 		              </label>
 		          </div>
 		          <div>
-		              <input type="checkbox" name="" id="checkbox6">
-		              <label for="checkbox6">
+		              <input type="checkbox" name="checkbox1_1" id="checkbox2" value="B">
+		              <label for="checkbox2">
 		                  <div>
-		                      <span>경기도</span>
+		                      <span>부산</span>
 		                  </div>
 		              </label>
 		          </div>
 		          <div>
-		              <input type="checkbox" name="" id="checkbox7">
-		              <label for="checkbox7">
+		              <input type="checkbox" name="checkbox1_1" id="checkbox3" value="C">
+		              <label for="checkbox3">
 		                  <div>
-		                      <span>충청도</span>
+		                      <span>대구</span>
 		                  </div>
 		              </label>
 		          </div>
 		            <div>
-		              <input type="checkbox" name="" id="checkbox7">
-		              <label for="checkbox7">
+		              <input type="checkbox" name="checkbox1_1" id="checkbox4" value="D">
+		              <label for="checkbox4">
 		                  <div>
 		                      <span>인천</span>
 		                  </div>
 		              </label>
 		          </div>
 		          </div>
-		          
 		          <div class="sideright">
-		         
 		            <div>
-		              <input type="checkbox" name="" id="checkbox7">
-		              <label for="checkbox7">
+		              <input type="checkbox" name="checkbox1_1" id="checkbox5" value="E">
+		              <label for="checkbox5">
 		                  <div>
-		                      <span>전라도</span>
+		                      <span>광주</span>
 		                  </div>
 		              </label>
 		          </div>
 		            <div>
-		              <input type="checkbox" name="" id="checkbox7">
-		              <label for="checkbox7">
+		              <input type="checkbox" name="checkbox1_1" id="checkbox6" value="F">
+		              <label for="checkbox6">
 		                  <div>
-		                      <span>경상도</span>
+		                      <span>대전</span>
 		                  </div>
 		              </label>
 		          </div>
 		            <div>
-		              <input type="checkbox" name="" id="checkbox7">
+		              <input type="checkbox" name="checkbox1_1" id="checkbox7" value="G">
 		              <label for="checkbox7">
 		                  <div>
 		                      <span>울산</span>
@@ -233,9 +230,7 @@
 				 </div>
 		  
 		   </div>
-
               <hr>
-
                         <div style="margin-bottom: 15px;">
               <span style="font-size: 30px; font-weight: bold;">여행 테마</span>
           </div>
@@ -263,23 +258,17 @@
                   </div>
               </label>
           </div>
-
               <hr>
-
               <div class="revboard">
                 <a href="#"><img th:src="@{/img/리뷰게시판이미지.png}" class="revImg"></a>
               </div>
-
           
           
       </div>
-
       <div class="taste-midcon" >
-
       </div>
   </div>
 </div>
-
 <div class="taste-middle-outer2" style="display: none;">
   <div class="taste-middle">
       <div class="taste-middle-text">
@@ -288,13 +277,13 @@
   </div>
   <div class="taste-middle2">
       <div class="taste-sidecheck">
-          <div style="margin-bottom: 15px;">
+          <div style="margin-bottom: 15px; ">
             <span style="font-size: 30px; font-weight: bold;">지역</span>
           </div>
           <div class="sidewrap">
           	<div class="sideleft">
 		          <div>
-		              <input type="checkbox" name="checkbox2_1" id="checkbox11">
+		              <input type="checkbox" name="checkbox2_1" id="checkbox11" value="A">
 		              <label for="checkbox11">
 		                  <div>
 		                      <span>서울</span>
@@ -302,7 +291,7 @@
 		              </label>
 		          </div>
 		          <div>
-		              <input type="checkbox" name="checkbox2_1" id="checkbox12">
+		              <input type="checkbox" name="checkbox2_1" id="checkbox12" value="B">
 		              <label for="checkbox12">
 		                  <div>
 		                      <span>부산</span>
@@ -310,7 +299,7 @@
 		              </label>
 		          </div>
 		          <div>
-		              <input type="checkbox" name="checkbox2_1" id="checkbox13">
+		              <input type="checkbox" name="checkbox2_1" id="checkbox13" value="C">
 		              <label for="checkbox13">
 		                  <div>
 		                      <span>대구</span>
@@ -318,7 +307,7 @@
 		              </label>
 		          </div>
 		            <div>
-		              <input type="checkbox" name="checkbox2_1" id="checkbox14">
+		              <input type="checkbox" name="checkbox2_1" id="checkbox14" value="D">
 		              <label for="checkbox14">
 		                  <div>
 		                      <span>인천</span>
@@ -326,18 +315,17 @@
 		              </label>
 		          </div>
 		          </div>
-
 		          <div class="sideright">
 		            <div>
-		              <input type="checkbox" name="checkbox2_1" id="checkbox15">
+		              <input type="checkbox" name="checkbox2_1" id="checkbox15" value="E">
 		              <label for="checkbox15">
 		                  <div>
-		                      <span>제주도</span>
+		                      <span>광주</span>
 		                  </div>
 		              </label>
 		          </div>
 		            <div>
-		              <input type="checkbox" name="checkbox2_1" id="checkbox16">
+		              <input type="checkbox" name="checkbox2_1" id="checkbox16" value="F">
 		              <label for="checkbox16">
 		                  <div>
 		                      <span>대전</span>
@@ -345,7 +333,7 @@
 		              </label>
 		          </div>
 		            <div>
-		              <input type="checkbox" name="checkbox2_1" id="checkbox17">
+		              <input type="checkbox" name="checkbox2_1" id="checkbox17" value="G">
 		              <label for="checkbox17">
 		                  <div>
 		                      <span>울산</span>
@@ -353,10 +341,9 @@
 		              </label>
 		          </div>
 				 </div>
+		  
 		   </div>
-		   
               <hr>
-              
                         <div style="margin-bottom: 15px;">
               <span style="font-size: 30px; font-weight: bold;">여행 테마</span>
           </div>
@@ -369,8 +356,8 @@
               </label>
           </div>
           <div>
-              <input type="radio" name="checkbox2_2" id="checkbox19"  value="b" checked>
-              <label for="checkbox2">
+          <input type="radio" name="checkbox2_2" id="checkbox19"  value="b" checked>
+                        <label for="checkbox2">
                   <div>
                       <span>자유여행</span>
                   </div>
@@ -384,220 +371,345 @@
                   </div>
               </label>
           </div>
-			<hr>
+              <hr>
               <div class="revboard">
                 <a href="#"><img th:src="@{/img/리뷰게시판이미지.png}" class="revImg"></a>
               </div>
-
-          
-        
-
           
           
       </div>
-
+	
       <div class="taste-midcon">
-
-
-        <div class="midcon-box">
-          <div class="midcon-img">
-            <img th:src="@{/img/고양이.jpg}" alt="">
-          </div>
-          <div class="midcon-text">
-            <strong>제ㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔ목</strong>
-            <p>서울 > xx구 > xx동 | 자유여행 | 2022.05.11</p>
-          </div>
-          <div class="midcon-star">
-          	<p class="glyphicon glyphicon-star"></p>
-          	<p class="glyphicon glyphicon-star"></p>
-          	<p class="glyphicon glyphicon-star"></p>
-          	<p class="glyphicon glyphicon-star"></p>
-          	<p class="glyphicon glyphicon-star"></p>
-          </div>
-        
-     
-
-      </div>
-  
-        <div class="midcon-box">
-          <div class="midcon-img">
-            <img th:src="@{/img/고양이.jpg}" alt="">
-          </div>
-          <div class="midcon-text">
-            <strong>제ㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔ목</strong>
-            <p>서울 > xx구 > xx동 | 자유여행 | 2022.05.11</p>
-          </div>
-          <div class="midcon-star">
-          	<p class="glyphicon glyphicon-star"></p>
-          	<p class="glyphicon glyphicon-star"></p>
-          	<p class="glyphicon glyphicon-star"></p>
-          	<p class="glyphicon glyphicon-star"></p>
-          	<p class="glyphicon glyphicon-star-empty"></p>
-          </div>
-        </div>
-    
-
-        <div class="midcon-box">
-          <div class="midcon-img">
-            <img th:src="@{/img/고양이.jpg}" alt="">
-          </div>
-          <div class="midcon-text">
-            <strong>제ㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔ목</strong>
-            <p>서울 > xx구 > xx동 | 자유여행 | 2022.05.11</p>
-          </div>
-          <div class="midcon-star">
-          	<p class="glyphicon glyphicon-star"></p>
-          	<p class="glyphicon glyphicon-star-empty"></p>
-          	<p class="glyphicon glyphicon-star-empty"></p>
-          	<p class="glyphicon glyphicon-star-empty"></p>
-          	<p class="glyphicon glyphicon-star-empty"></p>
-
-          </div>
-        </div>
-     
-
-        <div class="midcon-box">
-          <div class="midcon-img">
-            <img th:src="@{/img/고양이.jpg}" alt="">
-          </div>
-          <div class="midcon-text">
-            <strong>제ㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔ목</strong>
-            <p>서울 > xx구 > xx동 | 자유여행 | 2022.05.11</p>
-          </div>
-          <div class="midcon-star">
-          	<p class="glyphicon glyphicon-star"></p>
-          	<p class="glyphicon glyphicon-star"></p>
-          	<p class="glyphicon glyphicon-star"></p>
-          	<p class="glyphicon glyphicon-star"></p>
-          	<p class="glyphicon glyphicon-star"></p>
-          </div>
-        </div>
-        
-         <div class="midcon-box">
-          <div class="midcon-img">
-            <img th:src="@{/img/고양이.jpg}" alt="">
-          </div>
-          <div class="midcon-text">
-            <strong>제ㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔ목</strong>
-            <p>서울 > xx구 > xx동 | 자유여행 | 2022.05.11</p>
-          </div>
-          <div class="midcon-star">
-          	<p class="glyphicon glyphicon-star"></p>
-          	<p class="glyphicon glyphicon-star"></p>
-          	<p class="glyphicon glyphicon-star"></p>
-          	<p class="glyphicon glyphicon-star"></p>
-          	<p class="glyphicon glyphicon-star"></p>
-          </div>
-        </div>
-     
-
       </div>
   </div>
 </div>
+<div class="taste-middle-outer3" style="display: none;">
+  <div class="taste-middle">
+      <div class="taste-middle-text">
+          <span id="play-travel">놀거리 여행</span>
+      </div>
+  </div>
+  <div class="taste-middle2">
+      <div class="taste-sidecheck">
+          <div style="margin-bottom: 15px;">
+            <span style="font-size: 30px; font-weight: bold;">지역</span>
+          </div>
+          <div class="sidewrap">
+          	<div class="sideleft">
+		          <div>                                
+ 		              <input type="checkbox" name="checkbox3_1" id="checkbox21" value="A">
+		              <label for="checkbox20">
+		                  <div>
+		                      <span>서울</span>
+		                  </div>
+		              </label>
+		          </div>
+		          <div>
+		              <input type="checkbox" name="checkbox3_1" id="checkbox22" value="B">
+		              <label for="checkbox21">
+		                  <div>
+		                      <span>부산</span>
+		                  </div>
+		              </label>
+		          </div>
+		          <div>
+		              <input type="checkbox" name="checkbox3_1" id="checkbox23" value="C">
+		              <label for="checkbox22">
+		                  <div>
+		                      <span>대구</span>
+		                  </div>
+		              </label>
+		          </div>
+		            <div>
+		              <input type="checkbox" name="checkbox3_1" id="checkbox24" value="D">
+		              <label for="checkbox23">
+		                  <div>
+		                      <span>인천</span>
+		                  </div>
+		              </label>
+		          </div>
+		          </div>
+
+		          <div class="sideright">
+		            <div>		            		          		                   
+ 		              <input type="checkbox" name="checkbox3_1" id="checkbox25" value="E">
+		              <label for="checkbox24">
+		                  <div>
+		                      <span>광주</span>
+		                  </div>
+		              </label>
+		          </div>
+		            <div>
+		              <input type="checkbox" name="checkbox3_1" id="checkbox26" value="F">
+		              <label for="checkbox25">
+		                  <div>
+		                      <span>대전</span>
+		                  </div>
+		              </label>
+		          </div>
+		            <div>		            
+		              <input type="checkbox" name="checkbox3_1" id="checkbox27" value="G">
+		              <label for="checkbox26">
+		                  <div>
+		                      <span>울산</span>
+		                  </div>
+		              </label>
+		          </div>
+				 </div>
+		  
+		   </div>
+              <hr>
+                        <div style="margin-bottom: 15px;">
+              <span style="font-size: 30px; font-weight: bold;">여행 테마</span>
+          </div>
+          <div>
+              <input type="radio" name="checkbox3_2" id="checkbox28" value="a" >
+              <label for="checkbox27">
+                  <div>
+                      <span>맛집탐방</span>
+                  </div>
+              </label>
+          </div>
+          <div>
+              <input type="radio" name="checkbox3_2" id="checkbox29"  value="b">
+              <label for="checkbox28">
+                  <div>
+                      <span>자유여행</span>
+                  </div>
+              </label>
+          </div>
+          <div>
+              <input type="radio" name="checkbox3_2" id="checkbox30" value="c" checked>
+              <label for="checkbox29">
+                  <div>
+                      <span>액티비티</span>
+                  </div>
+              </label>
+          </div>
+              <hr>
+              <div class="revboard">
+                <a href="#"><img th:src="@{/img/리뷰게시판이미지.png}" class="revImg"></a>
+              </div>
+          
+          
+      </div>
+      <div class="taste-midcon">
+      </div>
+  </div>
+</div>
+
+  
 
 
 <th:block th:replace="~{/include/footer :: f_include }"></th:block>
 
 
-<script th:inline="javascript">
+<script th:inline:"javascript">
   // 아이콘 클릭시 해당 클래스가 보여지면서 위치로가기
-  var outer = $(".taste-middle-outer").offset();
-  $("html, body").animate({scrollTop: outer.top}, 500);
+  var tasteImg = document.getElementById("tasteImg");
+  var outer = document.querySelector(".taste-middle-outer")
+  var locaImg = document.getElementById("locaImg");
+  var outer2 = document.querySelector(".taste-middle-outer2")
+  var playImg = document.getElementById("playImg");
+  var outer3 = document.querySelector(".taste-middle-outer3")
 
   tasteImg.onclick = function() {
-    $(".taste-middle-outer").css("display", "block");
-    var outer = $(".taste-middle-outer").offset();
-    $("html, body").animate({scrollTop: outer.top}, 400);
-
+    outer.style.display = "block";
+	var location = $(".taste-middle-outer").offset();
+  	$("html, body").animate({scrollTop: location.top}, 500);
+  	
 	var theme = 'a';
-		$.getJSON("../getFirstCategory?review_theme=" + theme ,function(data){
-
-			console.log(data);
-
-		});
-		$("#checkbox1").prop("checked", true);
-		$("#checkbox2").prop("checked", false);
-		$("#checkbox3").prop("checked", false);
-	  
-
-  }
-
-
-  locaImg.onclick = function() {
-
-    $(".taste-middle-outer").css("display", "block");
-    var outer = $(".taste-middle-outer").offset();
-    $("html, body").animate({scrollTop: outer.top}, 400);
-	var theme = 'b';
-		$.getJSON("../getFirstCategory?review_theme=" + theme ,function(data){
-			console.log(data);
-
-    outer2.style.display = "block";
-    var theme = 'b';
 	var themeArr = [];
-	$("#checkbox19").prop("checked", true);
 		$.getJSON("../getFirstCategory?review_theme=" + theme ,function(data){
 			data.forEach(function(result,index){
 				themeArr.push(result);
-			});
-			
+			});                              
+	if($('.taste-middle-outer').find(".taste-midcon").children(".midcon-box").length > 0){
+		$('.taste-middle-outer').find(".taste-midcon").empty();
+		for(var i = 0 ; i < themeArr.length ; i++){
+		var review = themeArr[i];
+		$('.taste-middle-outer').find(".taste-midcon").append(
+		        '<div class="midcon-box" style="position:relative">'
+		       + '<div class="midcon-img">'
+		       + '<img src="/display?review_filename=' + review.review_filenames[0] + '&review_uuid='  + review.review_uuids[0] + '&review_filepath=' + review.review_filepaths[0]+ '" >'
+		       + '</div>'
+		       + '<div class="midcon-text">'
+		        + '<strong>' + review.review_title + '</strong>'
+		        + '<p>' + review.review_category + '</p>' 
+		        + '</div>'
+		        + '<div class="midcon-star" style="position: absolute; bottom: 0px; right: 0px; ">'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +	 '</div>'
+		      +	 '</div>'
+				);	
+		}							
+	} else{
+		for(var i = 0 ; i < themeArr.length ; i++){
+		var review = themeArr[i];
+		$('.taste-middle-outer').find(".taste-midcon").append(
+		        '<div class="midcon-box" style="position:relative">'
+		       + '<div class="midcon-img">'
+		       + '<img src="/display?review_filename=' + review.review_filenames[0] + '&review_uuid='  + review.review_uuids[0] + '&review_filepath=' + review.review_filepaths[0]+ '" >'
+		       + '</div>'
+		       + '<div class="midcon-text">'
+		        + '<strong>' + review.review_title + '</strong>'
+		        + '<p>' + review.review_category + '</p>' 
+		        + '</div>'
+		        + '<div class="midcon-star" style="position: absolute; bottom: 0px; right: 0px; ">'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +	 '</div>'
+		      +	 '</div>'
+				);	
+		}				
+	}
+
+		});
+
+    if(outer2.style.display = "block") {
+      outer2.style.display = "none"
+    }
+    if(outer3.style.display = "block") {
+      outer3.style.display = "none"
+    }
+  }
+  locaImg.onclick = function() {
+	
+    outer2.style.display = "block";
+    var location = $(".taste-middle-outer2").offset();
+  	$("html, body").animate({scrollTop: location.top}, 500);
+    var theme = 'b';
+	var themeArr = [];
+		$.getJSON("../getFirstCategory?review_theme=" + theme ,function(data){
+			data.forEach(function(result,index){
+				themeArr.push(result);
+			});          		                      
 	if($('.taste-middle-outer2').find(".taste-midcon").children(".midcon-box").length > 0){
 		$('.taste-middle-outer2').find(".taste-midcon").empty();
 		for(var i = 0 ; i < themeArr.length ; i++){
 		var review = themeArr[i];
 		$('.taste-middle-outer2').find(".taste-midcon").append(
-		        '<div class="midcon-box">'
+		        '<div class="midcon-box" style="position:relative">'
 		       + '<div class="midcon-img">'
 		       + '<img src="/display?review_filename=' + review.review_filenames[0] + '&review_uuid='  + review.review_uuids[0] + '&review_filepath=' + review.review_filepaths[0]+ '" >'
 		       + '</div>'
 		       + '<div class="midcon-text">'
-		        + review.review_title
-		        + '<br>'
-		        +'테마:음식'
-		      +  ' </div>'
-		      +  '</div>'
+		        + '<strong>' + review.review_title + '</strong>'
+		        + '<p>' + review.review_category + '</p>' 
+		        + '</div>'
+		        + '<div class="midcon-star" style="position: absolute; bottom: 0px; right: 0px; ">'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +	 '</div>'
+		      +	 '</div>'
 				);	
 		}				
 	} else{
 		for(var i = 0 ; i < themeArr.length ; i++){
 		var review = themeArr[i];
 		$('.taste-middle-outer2').find(".taste-midcon").append(
-		        '<div class="midcon-box">'
+		        '<div class="midcon-box" style="position:relative">'
 		       + '<div class="midcon-img">'
 		       + '<img src="/display?review_filename=' + review.review_filenames[0] + '&review_uuid='  + review.review_uuids[0] + '&review_filepath=' + review.review_filepaths[0]+ '" >'
 		       + '</div>'
 		       + '<div class="midcon-text">'
-		        + review.review_title
-		        + '<br>'
-		        +'테마:음식'
-		      +  ' </div>'
-		      +  '</div>'
+		        + '<strong>' + review.review_title + '</strong>'
+		        + '<p>' + review.review_category + '</p>' 
+		        + '</div>'
+		        + '<div class="midcon-star" style="position: absolute; bottom: 0px; right: 0px; ">'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +	 '</div>'
+		      +	 '</div>'
 				);	
 		}		
 	}
 		});
-		
-		$("#checkbox1").prop("checked", false);
-		$("#checkbox2").prop("checked", true);
-		$("#checkbox3").prop("checked", false);
-
-
+    if(outer.style.display = "block") {
+      outer.style.display = "none"
+    }
+    if(outer3.style.display = "block") {
+      outer3.style.display = "none"
+    }
   }
-
-
   playImg.onclick = function() {
-
-    $(".taste-middle-outer").css("display", "block");
-    var outer = $(".taste-middle-outer").offset();
-    $("html, body").animate({scrollTop: outer.top}, 400);
-	var theme = 'c';
-		$.getJSON("../getFirstCategory?review_theme=" + theme ,function(data){
-			console.log(data);
-		});
-		$("#checkbox1").prop("checked", false);
-		$("#checkbox2").prop("checked", false);
-		$("#checkbox3").prop("checked", true);
+    outer3.style.display = "block";
+    var location = $(".taste-middle-outer3").offset();
+  	$("html, body").animate({scrollTop: location.top}, 500);
+    
+    var theme = 'c';
+	var themeArr = [];
 	
+		$.getJSON("../getFirstCategory?review_theme=" + theme ,function(data){
+			data.forEach(function(result,index){
+				themeArr.push(result);
+			});		  
+	if($('.taste-middle-outer3').find(".taste-midcon").children(".midcon-box").length > 0){
+		$('.taste-middle-outer3').find(".taste-midcon").empty();
+		for(var i = 0 ; i < themeArr.length ; i++){
+		var review = themeArr[i];
+		$('.taste-middle-outer3').find(".taste-midcon").append(
+		        '<div class="midcon-box" style="position:relative">'
+		       + '<div class="midcon-img">'
+		       + '<img src="/display?review_filename=' + review.review_filenames[0] + '&review_uuid='  + review.review_uuids[0] + '&review_filepath=' + review.review_filepaths[0]+ '" >'
+		       + '</div>'
+		       + '<div class="midcon-text">'
+		        + '<strong>' + review.review_title + '</strong>'
+		        + '<p>' + review.review_category + '</p>' 
+		        + '</div>'
+		        + '<div class="midcon-star" style="position: absolute; bottom: 0px; right: 0px; ">'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +	 '</div>'
+		      +	 '</div>'
+				);	
+		}	
+	} else{
+		for(var i = 0 ; i < themeArr.length ; i++){
+		var review = themeArr[i];
+		$('.taste-middle-outer3').find(".taste-midcon").append(
+		        '<div class="midcon-box" style="position:relative">'
+		       + '<div class="midcon-img">'
+		       + '<img src="/display?review_filename=' + review.review_filenames[0] + '&review_uuid='  + review.review_uuids[0] + '&review_filepath=' + review.review_filepaths[0]+ '" >'
+		       + '</div>'
+		       + '<div class="midcon-text">'
+		        + '<strong>' + review.review_title + '</strong>'
+		        + '<p>' + review.review_category + '</p>' 
+		        + '</div>'
+		        + '<div class="midcon-star" style="position: absolute; bottom: 0px; right: 0px; ">'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +	 '</div>'
+		      +	 '</div>'
+				);	
+		}							
+	}
+		});
+    if(outer2.style.display = "block") {
+      outer2.style.display = "none"
+    }
+    if(outer.style.display = "block") {
+      outer.style.display = "none"
+    }
   }
 </script>
 
@@ -639,25 +751,76 @@
 $("input[name='checkbox1_1']").on('change', function(e){
 	var review_groups = [];
 	var review_theme;
-
+	var themeArr = [];
+	
 	for(var i =0 ; i < $("input[name='checkbox1_1']:checked").length ; i++){
-		console.log($("input[name='checkbox1_1']:checked")[i].value);
+		review_groups.push($("input[name='checkbox1_1']:checked")[i].value);
 	}
 	for(var i =0 ; i < $("input[name='checkbox1_2']:checked").length ; i++){
-		console.log($("input[name='checkbox1_2']:checked")[i].value);
+		review_theme = $("input[name='checkbox1_2']:checked")[i].value;
+	}
+	
+$.getJSON("../getSecondCategory?review_theme=" + review_theme + "&review_groups=" + review_groups  ,function(data){		
+			data.forEach(function(result,index){
+				themeArr.push(result);
+			});		  
+			console.log(themeArr);
+	if($('.taste-middle-outer').find(".taste-midcon").children(".midcon-box").length > 0){
+		$('.taste-middle-outer').find(".taste-midcon").empty();
+		for(var i = 0 ; i < themeArr.length ; i++){
+		var review = themeArr[i];
+		$('.taste-middle-outer').find(".taste-midcon").append(
+		        '<div class="midcon-box" style="position:relative">'
+		       + '<div class="midcon-img">'
+		       + '<img src="/display?review_filename=' + review.review_filenames[0] + '&review_uuid='  + review.review_uuids[0] + '&review_filepath=' + review.review_filepaths[0]+ '" >'
+		       + '</div>'
+		       + '<div class="midcon-text">'
+		        + '<strong>' + review.review_title + '</strong>'
+		        + '<p>' + review.review_category + '</p>' 
+		        + '</div>'
+		        + '<div class="midcon-star" style="position: absolute; bottom: 0px; right: 0px; ">'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +	 '</div>'
+		      +	 '</div>'
+				);	
+		}							
+	} else{
+		for(var i = 0 ; i < themeArr.length ; i++){
+		var review = themeArr[i];
+		$('.taste-middle-outer').find(".taste-midcon").append(
+		        '<div class="midcon-box" style="position:relative">'
+		       + '<div class="midcon-img">'
+		       + '<img src="/display?review_filename=' + review.review_filenames[0] + '&review_uuid='  + review.review_uuids[0] + '&review_filepath=' + review.review_filepaths[0]+ '" >'
+		       + '</div>'
+		       + '<div class="midcon-text">'
+		        + '<strong>' + review.review_title + '</strong>'
+		        + '<p>' + review.review_category + '</p>' 
+		        + '</div>'
+		        + '<div class="midcon-star" style="position: absolute; bottom: 0px; right: 0px; ">'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +	 '</div>'
+		      +	 '</div>'
+				);	
+		}				
 	}
 
-$.getJSON("../getSecondCategory?review_theme=" + review_theme + "&review_groups=" + review_groups  ,function(data){		
-	console.log(data);
-
-	})
+		});
 
 });
 
 $("input[name='checkbox2_1']").on('change', function(e){
 	var review_groups = [];
 	var review_theme;
-	
+	var themeArr = [];
+		
 	for(var i =0 ; i < $("input[name='checkbox2_1']:checked").length ; i++){
 		review_groups.push($("input[name='checkbox2_1']:checked")[i].value);
 	}
@@ -667,15 +830,65 @@ $("input[name='checkbox2_1']").on('change', function(e){
 
 	
 $.getJSON("../getSecondCategory?review_theme=" + review_theme + "&review_groups=" + review_groups  ,function(data){		
-	console.log(data);
+			data.forEach(function(result,index){
+				themeArr.push(result);
+			});		  
+			console.log(themeArr);
+	if($('.taste-middle-outer2').find(".taste-midcon").children(".midcon-box").length > 0){
+		$('.taste-middle-outer2').find(".taste-midcon").empty();
+		for(var i = 0 ; i < themeArr.length ; i++){
+		var review = themeArr[i];
+		$('.taste-middle-outer2').find(".taste-midcon").append(
+		        '<div class="midcon-box" style="position:relative">'
+		       + '<div class="midcon-img">'
+		       + '<img src="/display?review_filename=' + review.review_filenames[0] + '&review_uuid='  + review.review_uuids[0] + '&review_filepath=' + review.review_filepaths[0]+ '" >'
+		       + '</div>'
+		       + '<div class="midcon-text">'
+		        + '<strong>' + review.review_title + '</strong>'
+		        + '<p>' + review.review_category + '</p>' 
+		        + '</div>'
+		        + '<div class="midcon-star" style="position: absolute; bottom: 0px; right: 0px; ">'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +	 '</div>'
+		      +	 '</div>'
+				);	
+		}							
+	} else{
+		for(var i = 0 ; i < themeArr.length ; i++){
+		var review = themeArr[i];
+		$('.taste-middle-outer2').find(".taste-midcon").append(
+		        '<div class="midcon-box" style="position:relative">'
+		       + '<div class="midcon-img">'
+		       + '<img src="/display?review_filename=' + review.review_filenames[0] + '&review_uuid='  + review.review_uuids[0] + '&review_filepath=' + review.review_filepaths[0]+ '" >'
+		       + '</div>'
+		       + '<div class="midcon-text">'
+		        + '<strong>' + review.review_title + '</strong>'
+		        + '<p>' + review.review_category + '</p>' 
+		        + '</div>'
+		        + '<div class="midcon-star" style="position: absolute; bottom: 0px; right: 0px; ">'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +	 '</div>'
+		      +	 '</div>'
+				);	
+		}				
+	}
 
-	})
+		});
 
 });
 
 $("input[name='checkbox3_1']").on('change', function(e){
 	var review_groups = [];
 	var review_theme;
+	var themeArr = [];	
 	
 	for(var i =0 ; i < $("input[name='checkbox3_1']:checked").length ; i++){
 		review_groups.push($("input[name='checkbox3_1']:checked")[i].value);
@@ -684,12 +897,60 @@ $("input[name='checkbox3_1']").on('change', function(e){
 		review_theme = $("input[name='checkbox3_2']:checked")[i].value;
 	}
 	
-	console.log(review_groups);
 	
 $.getJSON("../getSecondCategory?review_theme=" + review_theme + "&review_groups=" + review_groups  ,function(data){		
-	console.log(data);
+			data.forEach(function(result,index){
+				themeArr.push(result);
+			});		  
+			console.log(themeArr);
+	if($('.taste-middle-outer3').find(".taste-midcon").children(".midcon-box").length > 0){
+		$('.taste-middle-outer3').find(".taste-midcon").empty();
+		for(var i = 0 ; i < themeArr.length ; i++){
+		var review = themeArr[i];
+		$('.taste-middle-outer3').find(".taste-midcon").append(
+		        '<div class="midcon-box" style="position:relative">'
+		       + '<div class="midcon-img">'
+		       + '<img src="/display?review_filename=' + review.review_filenames[0] + '&review_uuid='  + review.review_uuids[0] + '&review_filepath=' + review.review_filepaths[0]+ '" >'
+		       + '</div>'
+		       + '<div class="midcon-text">'
+		        + '<strong>' + review.review_title + '</strong>'
+		        + '<p>' + review.review_category + '</p>' 
+		        + '</div>'
+		        + '<div class="midcon-star" style="position: absolute; bottom: 0px; right: 0px; ">'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +	 '</div>'
+		      +	 '</div>'
+				);	
+		}							
+	} else{
+		for(var i = 0 ; i < themeArr.length ; i++){
+		var review = themeArr[i];
+		$('.taste-middle-outer').find(".taste-midcon").append(
+		        '<div class="midcon-box" style="position:relative">'
+		       + '<div class="midcon-img">'
+		       + '<img src="/display?review_filename=' + review.review_filenames[0] + '&review_uuid='  + review.review_uuids[0] + '&review_filepath=' + review.review_filepaths[0]+ '" >'
+		       + '</div>'
+		       + '<div class="midcon-text">'
+		        + '<strong>' + review.review_title + '</strong>'
+		        + '<p>' + review.review_category + '</p>' 
+		        + '</div>'
+		        + '<div class="midcon-star" style="position: absolute; bottom: 0px; right: 0px; ">'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +  ' <p class="glyphicon glyphicon-star"></p>'
+		      +	 '</div>'
+		      +	 '</div>'
+				);	
+		}				
+	}
 
-	})
+		});
   
 });
 
