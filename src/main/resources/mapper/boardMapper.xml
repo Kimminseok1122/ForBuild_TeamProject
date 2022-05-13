@@ -238,7 +238,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where C1.review_theme = #{review_theme}
 	</select>
 	
-	<select id="getSecondCategory" resultType="MainVO">
+	<select id="getSecondCategory" resultType="MainVO" >
 		select C1.*, C2.REVIEW_FILENAME , C2.REVIEW_FILEPATH, C2.REVIEW_UUID
 		from
 		(
@@ -250,11 +250,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		)C1
 		left outer join review_upload C2
 		on C1.review_no = C2.review_no
-		where C1.review_theme = #{review_theme}
-		and C1.review_group in	
-		<foreach collection="review_groups" item="arr" index="index" open="(" close=")" separator=",">
-			'${arr}'
-		</foreach>
+		where C1.review_theme = #{review_theme} 
+		
+		<if test="!review_groups.isEmpty()">
+			and C1.review_group in	
+			<foreach collection="review_groups" item="arr" index="index" open="(" close=")" separator=",">
+				#{arr}
+			</foreach>
+		</if>
 	</select>
 	
 	<select id="myreviewList" resultType="reviewVO">

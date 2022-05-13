@@ -1,7 +1,7 @@
 package com.teamproject.myweb.review;
 
 import java.util.ArrayList;
-
+import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -61,5 +61,6 @@ public interface boardMapper {
 	
 	public ArrayList<MainVO> getFirstCategory(String review_theme);
 	
-	public ArrayList<MainVO> getSecondCategory(@Param("review_theme") String review_theme ,@Param("review_groups") String[] review_groups);
+	public ArrayList<MainVO> getSecondCategory(
+			@Param("review_theme") String review_theme,  @Param("review_groups")  List<String> review_groups);
 }

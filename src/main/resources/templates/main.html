@@ -226,18 +226,132 @@
 		              <input type="checkbox" name="" id="checkbox7">
 		              <label for="checkbox7">
 		                  <div>
-		                      <span>강원도</span>
+		                      <span>울산</span>
+		                  </div>
+		              </label>
+		          </div>
+				 </div>
+		  
+		   </div>
+
+              <hr>
+
+                        <div style="margin-bottom: 15px;">
+              <span style="font-size: 30px; font-weight: bold;">여행 테마</span>
+          </div>
+          <div>
+              <input type="radio" name="checkbox1_2" id="checkbox8" value="a" checked>
+              <label for="checkbox8">
+                  <div>
+                      <span>맛집탐방</span>
+                  </div>
+              </label>
+          </div>
+          <div>
+              <input type="radio" name="checkbox1_2" id="checkbox9"  value="b">
+              <label for="checkbox9">
+                  <div>
+                      <span>자유여행</span>
+                  </div>
+              </label>
+          </div>
+          <div>
+              <input type="radio" name="checkbox1_2" id="checkbox10" value="c">
+              <label for="checkbox10">
+                  <div>
+                      <span>액티비티</span>
+                  </div>
+              </label>
+          </div>
+
+              <hr>
+
+              <div class="revboard">
+                <a href="#"><img th:src="@{/img/리뷰게시판이미지.png}" class="revImg"></a>
+              </div>
+
+          
+          
+      </div>
+
+      <div class="taste-midcon" >
+
+      </div>
+  </div>
+</div>
+
+<div class="taste-middle-outer2" style="display: none;">
+  <div class="taste-middle">
+      <div class="taste-middle-text">
+          <span id="view-travel">볼거리 여행</span>
+      </div>
+  </div>
+  <div class="taste-middle2">
+      <div class="taste-sidecheck">
+          <div style="margin-bottom: 15px;">
+            <span style="font-size: 30px; font-weight: bold;">지역</span>
+          </div>
+          <div class="sidewrap">
+          	<div class="sideleft">
+		          <div>
+		              <input type="checkbox" name="checkbox2_1" id="checkbox11">
+		              <label for="checkbox11">
+		                  <div>
+		                      <span>서울</span>
 		                  </div>
 		              </label>
 		          </div>
 		          <div>
-		              <input type="checkbox" name="" id="checkbox8">
-		              <label for="checkbox8">
+		              <input type="checkbox" name="checkbox2_1" id="checkbox12">
+		              <label for="checkbox12">
+		                  <div>
+		                      <span>부산</span>
+		                  </div>
+		              </label>
+		          </div>
+		          <div>
+		              <input type="checkbox" name="checkbox2_1" id="checkbox13">
+		              <label for="checkbox13">
+		                  <div>
+		                      <span>대구</span>
+		                  </div>
+		              </label>
+		          </div>
+		            <div>
+		              <input type="checkbox" name="checkbox2_1" id="checkbox14">
+		              <label for="checkbox14">
+		                  <div>
+		                      <span>인천</span>
+		                  </div>
+		              </label>
+		          </div>
+		          </div>
+
+		          <div class="sideright">
+		            <div>
+		              <input type="checkbox" name="checkbox2_1" id="checkbox15">
+		              <label for="checkbox15">
 		                  <div>
 		                      <span>제주도</span>
 		                  </div>
 		              </label>
-				   </div>
+		          </div>
+		            <div>
+		              <input type="checkbox" name="checkbox2_1" id="checkbox16">
+		              <label for="checkbox16">
+		                  <div>
+		                      <span>대전</span>
+		                  </div>
+		              </label>
+		          </div>
+		            <div>
+		              <input type="checkbox" name="checkbox2_1" id="checkbox17">
+		              <label for="checkbox17">
+		                  <div>
+		                      <span>울산</span>
+		                  </div>
+		              </label>
+		          </div>
 				 </div>
 		   </div>
 		   
@@ -247,7 +361,7 @@
               <span style="font-size: 30px; font-weight: bold;">여행 테마</span>
           </div>
           <div>
-              <input type="checkbox" name="checkbox1_1" id="checkbox1" value="a" checked>
+              <input type="radio" name="checkbox2_2" id="checkbox18" value="a" >
               <label for="checkbox1">
                   <div>
                       <span>맛집탐방</span>
@@ -255,7 +369,7 @@
               </label>
           </div>
           <div>
-              <input type="checkbox" name="checkbox1_1" id="checkbox2"  value="b">
+              <input type="radio" name="checkbox2_2" id="checkbox19"  value="b" checked>
               <label for="checkbox2">
                   <div>
                       <span>자유여행</span>
@@ -263,7 +377,7 @@
               </label>
           </div>
           <div>
-              <input type="checkbox" name="checkbox1_1" id="checkbox3" value="c">
+              <input type="radio" name="checkbox2_2" id="checkbox20" value="c">
               <label for="checkbox3">
                   <div>
                       <span>액티비티</span>
@@ -283,6 +397,7 @@
       </div>
 
       <div class="taste-midcon">
+
 
         <div class="midcon-box">
           <div class="midcon-img">
@@ -336,10 +451,10 @@
           	<p class="glyphicon glyphicon-star-empty"></p>
           	<p class="glyphicon glyphicon-star-empty"></p>
           	<p class="glyphicon glyphicon-star-empty"></p>
+
           </div>
         </div>
      
-
 
         <div class="midcon-box">
           <div class="midcon-img">
@@ -393,9 +508,12 @@
     $(".taste-middle-outer").css("display", "block");
     var outer = $(".taste-middle-outer").offset();
     $("html, body").animate({scrollTop: outer.top}, 400);
+
 	var theme = 'a';
 		$.getJSON("../getFirstCategory?review_theme=" + theme ,function(data){
+
 			console.log(data);
+
 		});
 		$("#checkbox1").prop("checked", true);
 		$("#checkbox2").prop("checked", false);
@@ -406,12 +524,57 @@
 
 
   locaImg.onclick = function() {
+
     $(".taste-middle-outer").css("display", "block");
     var outer = $(".taste-middle-outer").offset();
     $("html, body").animate({scrollTop: outer.top}, 400);
 	var theme = 'b';
 		$.getJSON("../getFirstCategory?review_theme=" + theme ,function(data){
 			console.log(data);
+
+    outer2.style.display = "block";
+    var theme = 'b';
+	var themeArr = [];
+	$("#checkbox19").prop("checked", true);
+		$.getJSON("../getFirstCategory?review_theme=" + theme ,function(data){
+			data.forEach(function(result,index){
+				themeArr.push(result);
+			});
+			
+	if($('.taste-middle-outer2').find(".taste-midcon").children(".midcon-box").length > 0){
+		$('.taste-middle-outer2').find(".taste-midcon").empty();
+		for(var i = 0 ; i < themeArr.length ; i++){
+		var review = themeArr[i];
+		$('.taste-middle-outer2').find(".taste-midcon").append(
+		        '<div class="midcon-box">'
+		       + '<div class="midcon-img">'
+		       + '<img src="/display?review_filename=' + review.review_filenames[0] + '&review_uuid='  + review.review_uuids[0] + '&review_filepath=' + review.review_filepaths[0]+ '" >'
+		       + '</div>'
+		       + '<div class="midcon-text">'
+		        + review.review_title
+		        + '<br>'
+		        +'테마:음식'
+		      +  ' </div>'
+		      +  '</div>'
+				);	
+		}				
+	} else{
+		for(var i = 0 ; i < themeArr.length ; i++){
+		var review = themeArr[i];
+		$('.taste-middle-outer2').find(".taste-midcon").append(
+		        '<div class="midcon-box">'
+		       + '<div class="midcon-img">'
+		       + '<img src="/display?review_filename=' + review.review_filenames[0] + '&review_uuid='  + review.review_uuids[0] + '&review_filepath=' + review.review_filepaths[0]+ '" >'
+		       + '</div>'
+		       + '<div class="midcon-text">'
+		        + review.review_title
+		        + '<br>'
+		        +'테마:음식'
+		      +  ' </div>'
+		      +  '</div>'
+				);	
+		}		
+	}
 		});
 		
 		$("#checkbox1").prop("checked", false);
@@ -423,6 +586,7 @@
 
 
   playImg.onclick = function() {
+
     $(".taste-middle-outer").css("display", "block");
     var outer = $(".taste-middle-outer").offset();
     $("html, body").animate({scrollTop: outer.top}, 400);
@@ -471,13 +635,62 @@
 
 
 
-$("input[type='checkbox']").on('change', function(e){
+
+$("input[name='checkbox1_1']").on('change', function(e){
+	var review_groups = [];
+	var review_theme;
+
 	for(var i =0 ; i < $("input[name='checkbox1_1']:checked").length ; i++){
 		console.log($("input[name='checkbox1_1']:checked")[i].value);
 	}
 	for(var i =0 ; i < $("input[name='checkbox1_2']:checked").length ; i++){
 		console.log($("input[name='checkbox1_2']:checked")[i].value);
 	}
+
+$.getJSON("../getSecondCategory?review_theme=" + review_theme + "&review_groups=" + review_groups  ,function(data){		
+	console.log(data);
+
+	})
+
+});
+
+$("input[name='checkbox2_1']").on('change', function(e){
+	var review_groups = [];
+	var review_theme;
+	
+	for(var i =0 ; i < $("input[name='checkbox2_1']:checked").length ; i++){
+		review_groups.push($("input[name='checkbox2_1']:checked")[i].value);
+	}
+	for(var i =0 ; i < $("input[name='checkbox2_2']:checked").length ; i++){
+		review_theme = $("input[name='checkbox2_2']:checked")[i].value;
+	}
+
+	
+$.getJSON("../getSecondCategory?review_theme=" + review_theme + "&review_groups=" + review_groups  ,function(data){		
+	console.log(data);
+
+	})
+
+});
+
+$("input[name='checkbox3_1']").on('change', function(e){
+	var review_groups = [];
+	var review_theme;
+	
+	for(var i =0 ; i < $("input[name='checkbox3_1']:checked").length ; i++){
+		review_groups.push($("input[name='checkbox3_1']:checked")[i].value);
+	}
+	for(var i =0 ; i < $("input[name='checkbox3_2']:checked").length ; i++){
+		review_theme = $("input[name='checkbox3_2']:checked")[i].value;
+	}
+	
+	console.log(review_groups);
+	
+$.getJSON("../getSecondCategory?review_theme=" + review_theme + "&review_groups=" + review_groups  ,function(data){		
+	console.log(data);
+
+	})
+  
 });
 
 

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
@@ -40,8 +41,6 @@ public class boardServiceImpl implements boardService{
 	@Override
 	public int reviewRegist(reviewVO vo, List<MultipartFile> list, HashMap<Integer, Review_CategoryVO> map) {
 		
-		System.out.println(vo.toString());
-		
 		int result = boardmapper.reviewRegist(vo);
 		
 		for(MultipartFile f : list) {
@@ -56,7 +55,6 @@ public class boardServiceImpl implements boardService{
 			
 			String savename = uploadpath + "\\" + filepath + "\\" + uuid + "_" + filename;
 			
-			System.out.println(savename);
 			
 			File file = new File(savename);
 			
@@ -312,9 +310,8 @@ public class boardServiceImpl implements boardService{
 
 	@Override
 	public ArrayList<MainVO> getSecondCategory(String review_theme, String[] review_groups) {
-		ArrayList<MainVO> list = boardmapper.getSecondCategory(review_theme, review_groups);
-		System.out.println(list.toString());
-		return null;
+		ArrayList<MainVO> list = boardmapper.getSecondCategory( review_theme, Arrays.asList(review_groups)  );
+		return list;
 	}
 
 	@Override

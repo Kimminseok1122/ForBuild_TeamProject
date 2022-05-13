@@ -3,6 +3,7 @@ package com.teamproject.myweb.Controller;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -43,6 +44,10 @@ public class RestApiController {
 	@GetMapping("/getSecondCategory")
 	public ArrayList<MainVO> getSecondCategory(@RequestParam("review_theme") String review_theme,
 											   @RequestParam("review_groups") String[] review_groups) {
+		
+		System.out.println(Arrays.toString(review_groups));
+		
+		System.out.println(review_theme);
 		
 		ArrayList<MainVO> list = boardservice.getSecondCategory(review_theme, review_groups);
 
