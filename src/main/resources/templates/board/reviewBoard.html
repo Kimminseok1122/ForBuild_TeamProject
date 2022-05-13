@@ -110,12 +110,11 @@
                             </th:block>
                         </div>
                         <div class="write-wrap">
-                            <button type="button" class="input" id="writeBtn">
-                            <a th:href="@{/board/reviewReg}">글쓰기</a>
-                            </button>
+                            <button type="button" class="input" id="writeBtn" th:onclick="|move()|">글쓰기</button>
                         </div>
                     </div>
                 </div> 
+                </form>
             </div>
       
         </div>
@@ -125,12 +124,20 @@
 </body>
 
 <script th:inline="javascript">
+
+	function move(){
+		this.event.preventDefault();
+		console.log(1);
+		location.href = 'http://localhost:8383/board/reviewReg';
+	}
 	
 	(function(){
 		var msg = JSON.parse('[[${msg}]]');
 		if(msg != null){
 			alert(msg);		
 		}
+		
+
 		
 		$("#showoption").on("change ", function(e){
 		document.reviewBoard.amount.value= $(e.target).val();

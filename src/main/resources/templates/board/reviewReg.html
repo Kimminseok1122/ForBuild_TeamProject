@@ -33,12 +33,12 @@
                                                     <th>등록일</th>
                                                     <td colspan="5">
                                                         <input type="text" class="datepicker" placeholder="날짜선택" value="null" disabled>
+	                                                    <input type="hidden" class="inputw150" name="review_writer" th:value="${session.userVO.user_name}" >
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <th>작성자</th>
                                                     <td><input type="text" class="inputw150" name="review_writer" th:value="${session.userVO.user_name}" disabled></td>
-                                                    <input type="hidden" class="inputw150" name="review_writer" th:value="${session.userVO.user_name}" >
                                                 </tr>
 
                                                 <tr>

@@ -311,6 +311,8 @@ public class boardServiceImpl implements boardService{
 	@Override
 	public ArrayList<MainVO> getSecondCategory(String review_theme, String[] review_groups) {
 		ArrayList<MainVO> list = boardmapper.getSecondCategory( review_theme, Arrays.asList(review_groups)  );
+		
+		
 		ArrayList<MainVO> newlist = new ArrayList<>();
 		int i = 0;
 		for(MainVO vo : list) {
@@ -333,7 +335,6 @@ public class boardServiceImpl implements boardService{
 				.review_theme(review_theme)
 				.build();				
 		newlist.add(newvo);
-		System.out.println(newlist.toString());
 		i++;
 		i++;
 		if(i == list.size())break;

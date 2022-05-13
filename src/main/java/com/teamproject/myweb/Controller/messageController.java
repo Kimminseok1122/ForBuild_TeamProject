@@ -58,6 +58,9 @@ public class messageController {
       model.addAttribute("senderList", list);
       model.addAttribute("sendpageVO", sendpageVO);
       
+      System.out.println(list.toString());
+      System.out.println(sendpageVO.toString());
+      
       return "message/messageSendList";
    }
    
@@ -68,6 +71,8 @@ public class messageController {
       
       MessageVO mesVO = messageService.getSendDetail(mno);
       model.addAttribute("mesVO", mesVO);
+      
+      System.out.println(mesVO);
       
       return "message/messageDetail";
    }

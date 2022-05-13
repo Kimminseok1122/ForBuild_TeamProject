@@ -133,12 +133,12 @@
      <th:block th:replace="~{/include/footer :: f_include }"></th:block>
 
 
-<script th:inlin="javascript">
+<script th:inline="javascript">
 
-  var lng = "[[${detailVO.review_lng}]]";
-  var lat = "[[${detailVO.review_lat}]]";
-  var review_realAddress = "[[${detailVO.review_realAddress}]]";
-  var review_no = "[[${detailVO.review_no}]]";
+  var lng = JSON.parse('[[${detailVO.review_lng}]]');
+  var lat = JSON.parse('[[${detailVO.review_lat}]]');
+  var review_realAddress = JSON.parse('[[${detailVO.review_realAddress}]]');
+  var review_no = JSON.parse('[[${detailVO.review_no}]]');
 
   function modify_function(){
 	  this.event.preventDefault();
